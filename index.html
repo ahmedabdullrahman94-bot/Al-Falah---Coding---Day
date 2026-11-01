@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نبرمج لنبتكر | We Code to Innovate</title>
+<meta name="description" content="نبرمج لنبتكر — تحدٍّ برمجي تفاعلي من أكاديمية الفلاح – فرع الجيمي ضمن شهر الإمارات للابتكار 2026">
+<meta name="theme-color" content="#06182f">
+<meta property="og:title" content="نبرمج لنبتكر | We Code to Innovate">
+<meta property="og:description" content="رحلتك تبدأ بالفضول… وتنتهي ببصمتك في الكود!">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e2a4d'/%3E%3Ctext x='32' y='41' font-size='26' font-family='monospace' font-weight='700' text-anchor='middle' fill='%233fd8ff'%3E%26lt;/%26gt;%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Montserrat:wght@700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06182f;--surf:#0e2a4d;--line:#1f4373;--tx:#eaf2ff;--mut:#9db4d3;--lit:#ffc247;--ok:#2dd4bf;--bad:#ff7a7a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Tajawal,system-ui,sans-serif;line-height:1.7;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line)}
+header b{font-size:1.1rem}
+button{font:inherit;cursor:pointer}
+.lang{background:none;border:1px solid var(--line);color:var(--tx);border-radius:8px;padding:4px 14px}
+main{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+h1{font-size:clamp(2.2rem,8vw,3.6rem);line-height:1.15;margin:.2em 0;font-weight:800}
+h2{font-size:1.5rem;margin:.2em 0 .6em}
+p{max-width:62ch}
+.mut{color:var(--mut)}
+.btn{background:var(--lit);color:#1b1300;border:0;border-radius:10px;padding:12px 26px;font-weight:700;font-size:1rem;margin-top:14px}
+.btn:focus-visible,.opt:focus-visible,.lang:focus-visible{outline:3px solid var(--ok);outline-offset:2px}
+.btn[disabled]{opacity:.4}
+.opts{display:grid;gap:10px;margin:14px 0}
+.opt{background:var(--surf);border:1px solid var(--line);color:var(--tx);border-radius:10px;padding:12px 16px;text-align:start}
+.opt.ok{border-color:var(--ok);background:#0b3b44}.opt.bad{border-color:var(--bad)}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}
+pre{direction:ltr;text-align:left;background:#031022;border-radius:10px;padding:12px;overflow-x:auto;margin:10px 0;color:#bfe3ff}
+.bar{height:6px;background:var(--line);border-radius:3px;margin-bottom:18px}.bar i{display:block;height:100%;background:var(--lit);border-radius:3px;transition:width .3s}
+.grid{display:grid;grid-template-columns:repeat(16,1fr);gap:4px;margin:14px 0;direction:ltr}
+.grid i{aspect-ratio:1;border-radius:3px;background:#0b2344}
+.grid i.on{background:var(--lit);box-shadow:0 0 8px #ffc24788}.grid i.me{background:var(--ok);box-shadow:0 0 10px var(--ok)}
+.hero-grid{margin-top:28px}
+label{display:block;margin:12px 0 4px;font-weight:500}
+input,select,textarea{width:100%;font:inherit;background:#031022;color:var(--tx);border:1px solid var(--line);border-radius:8px;padding:10px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.cert{background:#fff;color:#0a1d38;border:8px double #b8861a;border-radius:6px;padding:34px 20px;text-align:center}
+.cert h2{font-size:2rem;margin:.2em 0}.cert .nm{font-size:1.9rem;font-weight:800;border-bottom:2px solid #b8861a;display:inline-block;padding:0 24px;margin:8px 0}
+@media print{header,.noprint{display:none}body{background:#fff}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+body{background:radial-gradient(900px 500px at 85% 8%,#ff2d8a55,transparent 60%),radial-gradient(800px 600px at 8% 30%,#00e5ff44,transparent 60%),radial-gradient(900px 700px at 60% 100%,#7c3aed66,transparent 60%),linear-gradient(160deg,#04122a,#0a2a55 55%,#12063a);background-attachment:fixed}
+header{position:sticky;top:12px;z-index:5;margin:12px auto 0;max-width:1100px;width:calc(100% - 24px);border:1px solid #ffffff2e;border-radius:22px;background:#0a2347b3;backdrop-filter:blur(14px);padding:10px 16px;gap:12px;flex-wrap:wrap}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav button{background:none;border:0;color:var(--tx);padding:6px 14px;border-radius:12px}
+nav button.on{background:#ffffff1f;box-shadow:inset 0 -2px 0 #3fd8ff}
+.seg{display:flex;background:#ffffff14;border-radius:20px;padding:3px}
+.seg button{border:0;background:none;color:var(--tx);padding:5px 14px;border-radius:16px}
+.seg button.on{background:linear-gradient(135deg,#38bdf8,#2563eb);font-weight:700}
+.logo{background:#fff;color:#0a2347;border-radius:12px;padding:6px 12px;font-weight:800;display:flex;align-items:center}
+.logo img{height:30px}
+main{max-width:1100px}
+.card,.opt,.glass{background:#0c2a54a6;backdrop-filter:blur(12px);border:1px solid #ffffff2e;border-radius:22px}
+.opt{border-radius:14px}
+.glass{padding:22px}
+.btn{background:linear-gradient(135deg,#ff3d6e,#ff2d55);color:#fff;border-radius:16px;box-shadow:0 6px 20px #ff2d5555;margin-inline-end:8px}
+.btn.blue{background:linear-gradient(135deg,#1aa7e8,#3b6cff);box-shadow:0 6px 20px #3b6cff55}
+.home{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+@media(max-width:820px){.home{grid-template-columns:1fr}}
+.pill{display:inline-block;border:1px solid #ffffff33;background:#ffffff12;border-radius:20px;padding:4px 14px;font-size:.9rem;margin:2px}
+.pill.dot::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#2ee6a0;margin-inline-end:8px}
+.title{display:inline-block;max-width:100%;white-space:nowrap;font-size:clamp(2.4rem,9.5vw,4.8rem);line-height:1.6;padding:.1em .12em .2em;margin:0;font-weight:800;letter-spacing:0;background:linear-gradient(180deg,#d6f8ff,#3fd0ff 75%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 3px 0 #0a6aa8)}
+.tag{font-size:1.6rem;font-weight:700;margin:.2em 0}
+.board{display:grid;grid-template-columns:repeat(65,1fr);gap:2px;direction:ltr;padding:14px;border-radius:18px;background:#06183366;margin:0 0 12px}
+.board i{aspect-ratio:1/2.2;border-radius:3px;background:#1b4a7f66}
+.board i.x{visibility:hidden}
+.board i.on{box-shadow:0 0 8px currentColor}
+.board i.me{background:#fff;box-shadow:0 0 14px #fff,0 0 24px #3fd8ff}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat{text-align:center;border:1px solid #ffffff2e;border-radius:16px;padding:10px 4px;background:#ffffff0f;font-size:.9rem}
+.stat b{display:block;font-size:1.6rem}
+@media print{body{background:#fff!important}}
+
+.how{margin-top:34px}
+.how h2.big{font-size:clamp(1.8rem,5.5vw,3.2rem);line-height:1.5;font-weight:800;margin:0 0 .3em}
+.intro{display:grid;grid-template-columns:1fr 1.5fr;gap:20px;align-items:center;margin-bottom:26px}
+.intro p{margin:0;line-height:2}
+.note{display:flex;gap:12px;align-items:center;background:#0f4a52a6;border-color:#2ee6a066}
+.note b{display:block;margin-bottom:2px}.note small{color:var(--mut)}
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}
+.steps::before{content:"";position:absolute;top:58px;inset-inline:8%;height:2px;background:linear-gradient(90deg,#2ee6a0,#4f7dff,#c04dff,#2ee6a0);opacity:.7}
+.step{position:relative;padding:18px}
+.num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-weight:800;font-size:1.4rem;margin:0 0 14px;margin-inline-end:auto;box-shadow:0 0 0 6px #ffffff10;position:relative;z-index:1}
+.step h3{margin:0 0 6px;font-size:1.2rem}.step p{margin:0 0 12px;color:var(--mut);font-size:.92rem;line-height:1.8}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:.72rem;border:1px solid #ffffff33;background:#ffffff0f;border-radius:14px;padding:3px 12px;direction:ltr}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.path h3{margin:0;font-size:1.25rem}.path small{color:var(--mut)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+.flow span{border:1px solid #ffffff2e;background:#ffffff10;border-radius:12px;padding:4px 12px;font-size:.85rem}
+.flow em{font-style:normal;color:var(--ok)}
+.learn{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:24px}
+.learn b{margin-inline-end:8px}
+.learn span{border:1px solid #3fd8ff88;border-radius:14px;padding:3px 14px;font-size:.78rem;direction:ltr;box-shadow:0 0 10px #3fd8ff33}
+.cta{text-align:end}
+@media(max-width:820px){.intro,.paths{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.steps::before{display:none}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}.cta{text-align:center}}
+@media print{.how{display:none}}
+
+.step{transition:transform .2s,box-shadow .2s,border-color .2s}
+.step:hover,.step:focus-within{transform:translateY(-4px);box-shadow:0 10px 30px #3fd8ff33;border-color:#3fd8ff88}
+.tags span{font-size:.9rem;padding:7px 16px}
+.rolegrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rolebtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:14px 8px;text-align:center;font-weight:700;font-size:.95rem}
+.rolebtn span{font-size:1.8rem;line-height:1}
+.rolebtn:hover{border-color:#3fd8ff;background:#134a7d99;transform:translateY(-2px)}
+details.more summary{cursor:pointer;color:var(--ok);margin-top:12px;font-weight:700}
+details.more p{margin:8px 0 0}
+
+.steps{grid-template-columns:1fr;gap:14px}
+.steps::before{display:block;inset-inline:auto;inset-inline-start:45px;inset-block:46px;width:2px;height:auto;background:linear-gradient(180deg,#2ee6a0,#4f7dff,#c04dff,#2ee6a0)}
+.step{display:grid;grid-template-columns:56px 1fr minmax(280px,1.15fr);gap:4px 22px;align-items:center;padding:18px 20px}
+.step .num{grid-column:1;grid-row:1/4;margin:0;align-self:start}
+.step h3{grid-column:2;grid-row:1;margin:0}
+.step>p{grid-column:2;grid-row:2;margin:0}
+.step .rolegrid,.step .tags{grid-column:3;grid-row:1/3}
+.step details.more{grid-column:2/4;grid-row:3}
+.step details.more summary{margin-top:6px}
+.rolegrid{grid-template-columns:repeat(4,1fr)}
+.rolebtn{padding:12px 4px;font-size:.85rem}
+.paths{grid-template-columns:1fr}
+@media(max-width:700px){
+ .steps::before{display:none}
+ .step{grid-template-columns:56px 1fr}
+ .step h3,.step>p{grid-column:2}
+ .step .rolegrid,.step .tags{grid-column:1/-1;grid-row:auto}
+ .step details.more{grid-column:1/-1;grid-row:auto}
+ .step .num{grid-row:1/3}
+ .rolegrid{grid-template-columns:1fr 1fr}
+}
+
+.hud{display:flex;justify-content:space-between;font-size:1.2rem;margin-bottom:8px}
+.jmap{display:flex;gap:8px;margin-bottom:18px;position:relative}
+.jmap::before{content:"";position:absolute;top:50%;inset-inline:18px;height:2px;background:#ffffff33}
+.jn{position:relative;flex:1;max-width:46px;aspect-ratio:1;display:grid;place-items:center;border-radius:50%;background:#0c2a54;border:2px solid #ffffff33;font-size:1.1rem}
+.jn.d{background:#12b574;border-color:#12b574}
+.jn.c{border-color:var(--lit);box-shadow:0 0 14px #ffc24799}
+.jmap{justify-content:space-between}
+.slots,.rowbtn{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.slot{flex:1;min-width:110px;text-align:center;border:2px dashed #ffffff44;border-radius:12px;padding:10px;font-family:monospace;direction:ltr}
+.mono{font-family:monospace;direction:ltr;text-align:left}
+.lines{display:grid;gap:8px;margin:12px 0}
+.runner{font-size:2rem;min-height:2.6rem;direction:ltr}
+.opt[disabled]{opacity:.75;cursor:default}
+
+.q{display:block;font-size:clamp(1.3rem,4.2vw,1.7rem);font-weight:800;line-height:1.7;color:#fff;margin-bottom:6px}
+.opts .opt{font-size:clamp(1.1rem,3.6vw,1.3rem);font-weight:700;line-height:1.6;color:#fff;padding:16px 20px;border-width:2px;border-color:#ffffff40}
+.opts .opt:hover:not([disabled]){border-color:#3fd8ff;background:#134a7d99}
+.opts .opt.ok{border-color:var(--ok);background:#0b4a52}
+.opts .opt.bad{border-color:var(--bad);background:#4a1f2c}
+.rowbtn .opt,.lines .opt{font-weight:700;font-size:1.1rem;color:#fff}
+label{font-size:1.1rem;font-weight:700;color:#fff}
+input,select,textarea{font-size:1.1rem}
+
+.certbox{position:relative;container-type:inline-size;width:100%;max-width:1123px;aspect-ratio:842.25/595.5;margin:0 auto 18px;border-radius:6px;overflow:hidden;box-shadow:0 10px 40px #0008;background:#fff}
+.certbox>img{position:absolute;inset:0;width:100%;height:100%}
+.cf{position:absolute;transform:translateY(-50%);direction:rtl;text-align:right;white-space:nowrap;overflow:hidden;font-weight:800;color:#0b2a5b;font-size:2.7cqw;line-height:1.7;padding-inline:.4cqw}
+.cf.sm{font-size:1.5cqw;font-weight:700}
+@page{size:A4 landscape;margin:0}
+@media print{main{padding:0!important;max-width:none!important}.certbox{width:297mm;max-width:none;box-shadow:none;border-radius:0;margin:0}}
+
+.cf.en{direction:ltr;text-align:left;font-family:Arial,Helvetica,sans-serif;font-size:2.5cqw}
+.cf.en.sm{font-size:1.4cqw}
+/* ===== الشهادة الداكنة / Dark certificate ===== */
+.certbox.dc{--dc-bg:#1f2026;--dc-fg:#ffffff;--dc-mut:#c9cbd2;--dc-red:#d62a26;--dc-green:#45b649;--dc-coral:#f07a6a;
+  background:var(--dc-bg);color:var(--dc-fg);font-family:Tajawal,system-ui,sans-serif;border-radius:4px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.certbox.dc *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.certbox.dc::before{content:"";position:absolute;inset:2.4cqw;border:.16cqw solid #ffffff3a;pointer-events:none;z-index:2}
+.dc-deco{position:absolute;inset:2.4cqw;overflow:hidden;z-index:0}
+.dc-red{position:absolute;top:0;left:10.6%;width:12.8%;height:19.5%;background:var(--dc-red);clip-path:polygon(38% 0,100% 0,62% 100%,0 100%)}
+.dc-green{position:absolute;bottom:0;left:0;width:18.5%;height:25%;background:var(--dc-green);clip-path:polygon(0 0,100% 100%,0 100%)}
+.dc.ltr .dc-deco{transform:scaleX(-1)}
+.dc-top{position:absolute;top:5.4cqw;inset-inline:7.6cqw;display:flex;align-items:center;justify-content:flex-start;gap:2.2cqw;z-index:3}
+.dc-uae{height:4.6cqw;width:auto}
+.dc-school{background:#fff;border-radius:.9cqw;padding:.5cqw 1cqw;display:inline-flex}
+.dc-school img{height:4.2cqw;width:auto;display:block}
+.dc-body{position:absolute;top:13.2cqw;inset-inline-start:7.6cqw;width:72cqw;z-index:3;display:flex;flex-direction:column;align-items:flex-start;text-align:start}
+.dc-tag{font-family:"IBM Plex Mono",ui-monospace,monospace;color:var(--dc-green);font-size:1.75cqw;letter-spacing:.05em;line-height:1.2}
+.dc.rtl .dc-tag{align-self:flex-start}
+.dc-title{font-weight:900;font-size:4.1cqw;line-height:1.25;margin-top:.3cqw}
+.dc.ltr .dc-title{font-family:Montserrat,Tajawal,sans-serif;font-weight:800;font-size:3.5cqw}
+.dc-to{color:var(--dc-mut);font-size:1.85cqw;margin-top:1.1cqw}
+.dc-name{font-family:Montserrat,Tajawal,sans-serif;font-weight:800;font-size:6.2cqw;line-height:1.3;white-space:nowrap;overflow:hidden;max-width:100%;margin-top:.4cqw}
+.dc-rule{width:10cqw;height:.42cqw;background:var(--dc-red);margin-top:.6cqw}
+.dc-meta{color:var(--dc-mut);font-size:1.7cqw;margin-top:1.2cqw;white-space:nowrap;overflow:hidden;max-width:100%}
+.dc-meta b{color:var(--dc-fg);font-weight:700}
+.dc-for{color:var(--dc-mut);font-size:1.85cqw;margin-top:1.5cqw}
+.dc-prog{color:var(--dc-green);font-weight:900;font-size:5cqw;line-height:1.25}
+.dc.ltr .dc-prog{font-family:Montserrat,Tajawal,sans-serif;font-weight:800;font-size:4.4cqw}
+.dc-desc{color:var(--dc-mut);font-size:1.85cqw}
+.dc-foot{position:absolute;bottom:6.4cqw;inset-inline:7.6cqw;display:flex;justify-content:space-between;align-items:flex-end;gap:3cqw;z-index:3}
+.dc-ev{display:flex;flex-direction:column;align-items:flex-start;line-height:1.35}
+.dc-ev b{color:var(--dc-mut);font-weight:800;font-size:2.05cqw;white-space:nowrap}
+.dc-ev span{color:var(--dc-coral);font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:2cqw}
+.dc-sigs{display:flex;gap:2.8cqw;margin-inline-end:14cqw}
+.dc-sig{display:flex;flex-direction:column;align-items:center;min-width:15cqw;border-top:.22cqw solid var(--dc-red);padding-top:.7cqw;line-height:1.35}
+.dc-sig small{color:var(--dc-mut);font-size:1.35cqw}
+.dc-sig b{font-size:1.7cqw;font-weight:800;white-space:nowrap}
+.dc-id{position:absolute;bottom:3.5cqw;inset-inline-start:7.6cqw;color:#8d909a;font-size:1.05cqw;z-index:3}
+
+.cf.ctr{text-align:center}
+.narrow>*{max-width:1100px;margin-inline:auto}
+.narrow>.certbox{max-width:1300px}
+@media(min-width:1200px){
+  .home{align-items:stretch;min-height:calc(100vh - 150px)}
+  .home>div{display:flex;flex-direction:column;gap:20px}
+  .home>div>.glass{margin:0!important}
+  .home>div>.glass:first-child{flex:1}
+}
+@media(min-width:1600px){
+  html{font-size:19px}
+  header{max-width:1760px}
+  main{max-width:1760px;padding:28px 36px 70px}
+  .glass{padding:30px}
+  .title{font-size:5.6rem}
+  .tag{font-size:2rem}
+  .home p{font-size:1.1rem}
+  .narrow>*{max-width:1250px}
+  .narrow>.certbox{max-width:1400px}
+}
+@media print{.narrow>.certbox{max-width:none}}
+
+.orb{position:fixed;left:0;top:0;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,#3fd8ff30,transparent 65%);pointer-events:none;z-index:0;opacity:0}
+header,main{position:relative;z-index:1}
+header{z-index:5}
+.steps::before{transform-origin:top;transform:scaleY(var(--p,1))}
+.home .glass,.how .step,.how .path{will-change:transform}
+@media print{.orb{display:none}}
+.fl{position:absolute;font-family:'Courier New',monospace;font-weight:700;line-height:1;will-change:transform;user-select:none;text-shadow:0 0 14px currentColor}
+#floaters{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+@media print{#floaters{display:none}}
+.home{align-items:stretch}
+.boardcard{display:flex;flex-direction:column}
+.boardcard .board{flex:1;min-height:280px;grid-template-rows:repeat(7,1fr);margin-bottom:14px}
+.boardcard .board i{aspect-ratio:auto}
+.statscard{margin-top:20px}
+.board{gap:1px;padding:12px}
+.board i{aspect-ratio:1;border-radius:2px}
+.board i.on{box-shadow:0 0 5px currentColor}
+.board.stack{width:min(100%,28rem);margin:0 auto 14px}
+.boardcard{justify-content:center}
+.boardcard .board{flex:none;min-height:0;grid-template-rows:none}
+.boardcard .board i{aspect-ratio:1}
+
+:root[dir=rtl]{--dir:-1}:root[dir=ltr]{--dir:1}
+.hbtns{margin-top:6px}
+.nowh{margin:22px 0 10px;font-size:1.2rem;text-align:center}
+@media(min-width:1200px){.home>section:first-child{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}}
+.journey{position:relative;margin-top:20px;padding:30px}
+.jpill{position:absolute;inset-block-start:34px;inset-inline-end:30px}
+.jtitle{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin:0 0 4px}
+.jdesc{color:var(--mut);margin:0 0 10px;max-width:70ch}
+.jrow{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:34px 0 30px;text-align:center}
+.jline{position:absolute;top:40px;inset-inline:10%;height:5px;border-radius:3px;background:linear-gradient(90deg,#ff5c8a,#38bdf8,#2ee6a0);container-type:inline-size}
+.jdot{position:absolute;inset-inline-start:-8px;top:50%;margin-top:-8px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 0 14px 4px #7fe7ff;transform:translateX(calc(var(--t,0) * 100cqw * var(--dir,-1)))}
+.jnode{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.jicon{width:84px;height:84px;border-radius:24px;display:grid;place-items:center;font-size:2.4rem;margin-bottom:8px;box-shadow:0 0 0 6px #0a1d3a,0 0 30px #ffffff22,inset 0 -6px 12px #0003;will-change:transform}
+.jnode b{font-size:1.15rem}.jnode small{color:var(--mut);font-size:.85rem}
+.jcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.jcard{display:flex;gap:14px;align-items:center;border:1px solid #ffffff22;background:#ffffff0a;border-radius:18px;padding:16px}
+.jci{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:1.6rem;background:#1c4a8a88;border:1px solid #ffffff33}
+.jcard b{display:block}.jcard small{color:var(--mut)}
+@media(max-width:820px){.jrow{grid-template-columns:1fr 1fr;row-gap:22px}.jline{display:none}.jcards{grid-template-columns:1fr}.jpill{position:static;display:inline-block;margin-bottom:8px}}
+@media print{.journey{display:none}}
+
+body.sp-on{overflow:hidden}
+#splash{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;
+ background:radial-gradient(900px 520px at 80% 10%,#ff2d8a40,transparent 60%),radial-gradient(800px 600px at 10% 40%,#00e5ff30,transparent 60%),radial-gradient(900px 700px at 55% 100%,#7c3aed55,transparent 60%),radial-gradient(circle at 50% 45%,#0b3a6e,transparent 60%),linear-gradient(160deg,#030c1d,#07224a 55%,#0d0531)}
+.sp-ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid #3fd8ff26;transform:translate(-50%,-50%)}
+.sp-ring.r1{width:min(150vh,1500px);height:min(150vh,1500px)}
+.sp-ring.r2{width:min(100vh,1000px);height:min(100vh,1000px);border-color:#ff6aa822}
+.sp-w{position:absolute;font-family:'Courier New',monospace;font-weight:800;opacity:.09;line-height:1;user-select:none;white-space:nowrap}
+.sp-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 20px}
+.sp-icon{width:92px;height:92px;border-radius:26px;display:grid;place-items:center;font-size:2rem;color:#fff;font-family:'Courier New',monospace;
+ background:linear-gradient(145deg,#1d5ea8aa,#0b2a5aaa);border:1px solid #ffffff44;backdrop-filter:blur(10px);box-shadow:0 0 40px #3fd8ff55,0 0 90px #ff6aa833,inset 0 1px 0 #ffffff44}
+.sp-title{display:flex;gap:.45em;align-items:baseline;flex-wrap:wrap;justify-content:center;font-size:clamp(1.9rem,5.5vw,3.4rem);font-weight:800;margin:26px 0 8px;line-height:1.5}
+.sp-en{background:linear-gradient(180deg,#d6f8ff,#3fd0ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 3px 0 #0a6aa8)}
+.sp-sep{color:var(--lit);text-shadow:0 0 14px #ffc24799}
+.sp-ar{color:#fff}
+.sp-cap{margin:0 0 22px;letter-spacing:.16em;font-size:.8rem;color:var(--mut)}
+.sp-bar{width:min(480px,78vw);height:4px;border-radius:2px;background:#ffffff1c;overflow:hidden}
+.sp-bar i{display:block;height:100%;transform-origin:0 50%;background:linear-gradient(90deg,#ff5c8a,#ffc247,#38bdf8,#2ee6a0);box-shadow:0 0 12px #3fd8ff}
+@media print{#splash{display:none}}
+.sp-title{font-size:clamp(3rem,10vw,6.2rem);font-weight:800;letter-spacing:.06em;margin:26px 0 8px;line-height:1.3;display:block}
+.sp-title b{display:inline-block;font-weight:800;background:linear-gradient(180deg,#e2faff,#3fd0ff 70%,#1f8ad8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 4px 0 #0a5a96) drop-shadow(0 0 18px #3fd8ff66)}
+.sp-title b.gap{width:.35em}
+.hero-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.hero-logo{display:inline-flex;align-items:center;background:#fff;border-radius:18px;padding:8px 18px;box-shadow:0 8px 28px #0006,0 0 0 1px #ffffff55}
+.hero-logo img{display:block;height:clamp(44px,6vw,68px);width:auto}
+.hero-top .pill{margin:0}
+@media(min-width:1600px){.hero-logo img{height:76px}}
+.hero-top{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:6px}
+.hero-logo img{height:clamp(52px,7vw,80px)}
+@media(min-width:1600px){.hero-logo img{height:92px}}
+.hero-top{align-items:center;align-self:center;width:100%}
+.how h2.big{white-space:nowrap;font-size:min(2.3rem,2.7vw);line-height:1.6}
+.step{grid-template-columns:64px 1fr minmax(340px,1.35fr);padding:24px 26px}
+.step h3{font-size:1.5rem}
+.step>p{font-size:1.08rem;line-height:1.9}
+.step .tags{gap:12px}
+.step .tags span{font-size:1.15rem;font-weight:700;padding:12px 24px;border-radius:16px;border-width:2px;background:#ffffff14;letter-spacing:.02em}
+.rolebtn{padding:18px 6px;font-size:1.05rem}
+.rolebtn span{font-size:2.2rem}
+@media(max-width:700px){.how h2.big{white-space:normal;font-size:1.5rem}.step{grid-template-columns:56px 1fr;padding:18px}.step .tags span{font-size:1rem;padding:10px 18px}}
+.flow{gap:12px}
+.flow span{font-size:1.05rem;font-weight:600;padding:9px 20px;border-radius:14px;border-width:2px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.flow span:hover{transform:translateY(-3px);box-shadow:0 6px 18px #3fd8ff44;border-color:#3fd8ff}
+.flow em{font-size:1.4rem;line-height:1}
+.path h3{font-size:1.4rem}
+.learn{display:block;padding:26px}
+.lhead{margin-bottom:18px}.lhead b{font-size:1.5rem}
+.lgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.ltile{position:relative;overflow:hidden;border-radius:20px;padding:20px 14px;text-align:center;background:linear-gradient(160deg,#ffffff14,#ffffff06);border:1px solid #ffffff2e;transition:transform .25s,box-shadow .25s,border-color .25s}
+.ltile:hover{transform:translateY(-6px) scale(1.03);border-color:var(--c);box-shadow:0 12px 30px color-mix(in srgb,var(--c) 40%,transparent)}
+.ltile::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,#ffffff2e 50%,transparent 65%);transform:translateX(calc(var(--s,-1) * 100%));pointer-events:none}
+.licon{width:62px;height:62px;border-radius:18px;margin:0 auto 12px;display:grid;place-items:center;font-size:1.9rem;background:var(--g);box-shadow:0 0 22px color-mix(in srgb,var(--c) 55%,transparent);will-change:transform}
+.ltile b{display:block;font-family:'Courier New',monospace;font-size:1rem;letter-spacing:.04em;direction:ltr}
+.ltile small{display:block;color:var(--mut);font-size:.88rem;margin:6px 0 12px;line-height:1.6;min-height:2.8em}
+.ltile code{display:inline-block;direction:ltr;font-family:'Courier New',monospace;font-size:.8rem;color:var(--c);background:#031022aa;border-radius:8px;padding:3px 10px}
+@media(max-width:1100px){.lgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.lgrid{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){.ltile::after{display:none}}
+.learn{margin-top:20px}
+.step .rolenotes{grid-column:2;grid-row:3;margin-top:4px}
+.step.s0 .num{grid-row:1/5}
+.step.s0 details.more{grid-row:4}
+.rnote{display:flex;gap:12px;align-items:flex-start;margin-top:12px}
+.rnote>span{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:#1c4a8a88;border:1px solid #ffffff33}
+.rnote b{display:block;font-size:1.08rem}
+.rnote small{display:block;color:var(--mut);font-size:.95rem;line-height:1.7}
+@media(max-width:700px){.step .rolenotes{grid-column:1/-1;grid-row:auto}.step.s0 .num{grid-row:1/3}.step.s0 details.more{grid-row:auto}}
+.step .rolenotes{grid-column:2/4;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;align-items:start}
+.step .rolenotes .rnote{margin-top:8px}
+@media(max-width:700px){.step .rolenotes{grid-column:1/-1;grid-template-columns:1fr}}
+header{position:fixed;top:12px;left:0;right:0;margin:0 auto;width:calc(100% - 24px)}
+[id=board],[id=how],[id=learn],[id=nat]{scroll-margin-top:120px}
+header nav button,header .seg button,header .logo{box-shadow:0 0 calc(max(var(--gl,0),var(--gh,0)) * 22px) calc(max(var(--gl,0),var(--gh,0)) * 2px) rgba(63,216,255,calc(max(var(--gl,0),var(--gh,0)) * .7))}
+header nav button,header .seg button{text-shadow:0 0 calc(max(var(--gl,0),var(--gh,0)) * 12px) rgba(63,216,255,calc(max(var(--gl,0),var(--gh,0)) * .9));transition:background .2s}
+header nav button.on{box-shadow:inset 0 -2px 0 #3fd8ff,0 0 calc(max(var(--gl,0),var(--gh,0)) * 22px) calc(max(var(--gl,0),var(--gh,0)) * 2px) rgba(63,216,255,calc(max(var(--gl,0),var(--gh,0)) * .7))}
+header nav button:hover,header .seg button:hover,header .logo:hover{--gh:.8}
+header .logo{position:relative;overflow:hidden}
+header .logo::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,#3fd8ff66 50%,transparent 65%);transform:translateX(calc(var(--s,-1) * 100%));pointer-events:none}
+@media(prefers-reduced-motion:reduce){header .logo::after{display:none}}
+@media(min-width:1200px){.home{min-height:0}}
+.home .glass{padding:22px}
+.home p{margin:.35em 0}
+.home .title{line-height:1.5;padding-block:.02em .1em}
+.board.stack{width:min(100%,18rem);margin-bottom:8px}
+.boardcard .board{padding:6px}
+.boardcard .nowh{margin:12px 0 6px;font-size:1.05rem}
+.boardcard .stats{gap:8px}
+.boardcard .stat{padding:6px 2px;font-size:.8rem}
+.boardcard .stat b{font-size:1.25rem}
+.boardcard .btn{margin-top:6px;padding:9px 22px}
+.hero-top{gap:10px;margin-bottom:2px}
+@media(min-width:1600px){.home .glass{padding:24px}.home .title{font-size:4.4rem}.hero-logo img{height:76px}.board.stack{width:min(100%,20rem)}}
+.board{gap:3px}
+.board i{border-radius:3px}
+.board i.on{box-shadow:0 0 9px currentColor}
+.board.stack{width:100%;margin:0 0 10px}
+.board.line{max-width:720px;margin:14px auto}
+.home .title{white-space:normal;font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.5}
+@media(min-width:1600px){.home .title{font-size:3.6rem}}
+.board i,.boardcard .board i{aspect-ratio:1/1.7}
+.boardcard .board{padding:20px 14px}
+.logo{padding:4px 14px}
+.logo img{height:44px;width:auto;display:block}
+@media(min-width:1600px){.logo img{height:52px}}
+@media(max-width:560px){.logo img{height:34px}}
+#spc{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sp-center{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%)}
+.nat{margin-top:20px;padding:30px}
+.nhead h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin:10px 0 6px}
+.nhead p{color:var(--mut);max-width:85ch;line-height:2;margin:0}
+.nsub{margin:24px 0 14px;font-size:1.3rem}
+.natstats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.nstat{text-align:center;border:1px solid #ffffff2e;border-radius:22px;padding:24px 14px;background:linear-gradient(160deg,#ffffff14,#ffffff05)}
+.nstat b{display:block;font-size:clamp(2.6rem,5vw,4rem);font-weight:800;line-height:1.25;background:linear-gradient(180deg,#ffe29a,#ffc247);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-variant-numeric:tabular-nums;direction:ltr}
+.nstat small{display:block;color:var(--mut);font-size:1rem}
+.nstat span{display:block;font-weight:700;font-size:1.2rem}
+.nstat em{display:block;font-style:normal;color:var(--mut);margin-top:4px;font-size:.95rem}
+.natpil{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:20px}
+.npil{border:1px solid #ffffff2e;border-radius:18px;padding:18px;background:#ffffff0a;transition:transform .25s,border-color .25s,box-shadow .25s}
+.npil:hover{transform:translateY(-5px);border-color:#3fd8ff;box-shadow:0 10px 26px #3fd8ff33}
+.nicon{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:1.6rem;background:linear-gradient(135deg,#1d5ea8,#0b3a7a);border:1px solid #ffffff33;margin-bottom:10px;will-change:transform}
+.npil b{display:block;font-size:1.08rem;margin-bottom:4px}
+.npil small{display:block;color:var(--mut);line-height:1.8;font-size:.9rem}
+.nvisa{display:flex;gap:18px;align-items:center;border:1px solid #ffc24788;background:linear-gradient(135deg,#ffc24722,#ffffff08);border-radius:20px;padding:22px;margin-bottom:18px}
+.nvisa .nicon{flex:none;width:68px;height:68px;font-size:2.1rem;margin:0;background:linear-gradient(135deg,#ffc247,#f59e0b)}
+.nvisa b{font-size:1.3rem}
+.nvisa p{margin:4px 0 0;color:#dbe7ff;line-height:1.9}
+.nlinks{display:flex;flex-wrap:wrap;gap:10px}
+.nlinks a{color:#fff;text-decoration:none;border:1px solid #3fd8ff88;background:#3fd8ff18;border-radius:20px;padding:9px 20px;font-weight:700;transition:background .2s,transform .2s}
+.nlinks a:hover,.nlinks a:focus-visible{background:#3fd8ff44;transform:translateY(-2px)}
+.nsrc{color:var(--mut);font-size:.82rem;margin:16px 0 0;line-height:1.8}
+@media(max-width:1100px){.natpil{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.natstats,.natpil{grid-template-columns:1fr}.nvisa{flex-direction:column;align-items:flex-start}}
+@media print{.nat{display:none}}
+.nhead p{color:#f2f7ff;font-size:clamp(1.1rem,1.7vw,1.35rem);font-weight:600;line-height:2;max-width:95ch;text-shadow:0 1px 8px #0006}
+a.btn{display:inline-block;text-decoration:none}
+.natcta{margin:0 auto 18px;text-align:center}
+.natcta h2,.nm-box h2{font-size:clamp(1.5rem,4vw,2.1rem);margin:10px 0 6px}
+.natcta p,.nm-box p{color:#e6efff;font-size:1.1rem;line-height:1.9;margin:0 auto;max-width:60ch}
+.nm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.nm-stats>div{border:1px solid #ffffff2e;border-radius:14px;padding:10px 6px;background:#ffffff0d}
+.nm-stats b{display:block;font-size:1.5rem;color:var(--lit);direction:ltr}
+.nm-stats span{font-size:.85rem;color:var(--mut)}
+.nm-btns{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:4px 6px 0}
+#natmodal{position:fixed;inset:0;z-index:500;display:grid;place-items:center;padding:20px;background:rgba(3,10,25,.74);backdrop-filter:blur(6px)}
+.nm-box{position:relative;max-width:680px;width:100%;border-radius:26px;padding:30px 26px;background:linear-gradient(160deg,#0f3a6e,#0a1f45);border:1px solid #ffc24788;box-shadow:0 20px 70px #000a,0 0 60px #ffc24733;text-align:center;max-height:92vh;overflow:auto}
+.nm-x{position:absolute;inset-block-start:12px;inset-inline-end:14px;width:36px;height:36px;border-radius:50%;background:#ffffff14;border:1px solid #ffffff33;color:#fff}
+.nm-later{display:inline-block;margin-top:4px;padding:10px 22px;font-size:1rem}
+@media(max-width:560px){.nm-stats{grid-template-columns:1fr}}
+@media print{#natmodal{display:none}}
+.nvisa{display:grid;grid-template-columns:auto 1fr;gap:12px 18px;align-items:center}
+.nvisa .nicon{grid-column:1;grid-row:1}
+.nvisa b{grid-column:2;grid-row:1;font-size:1.45rem}
+.nvisa p{grid-column:1/-1;grid-row:2;margin:0;max-width:none;width:100%;font-size:clamp(1.1rem,1.6vw,1.32rem);font-weight:500;line-height:2.05;color:#f4f8ff;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-shadow:0 1px 6px #0005}
+@media(max-width:700px){.nvisa{display:grid}}
+.introtxt .ibrand{display:block;color:var(--lit);font-weight:800;font-size:1.15rem;text-shadow:0 0 14px #ffc24766}
+.introtxt .itag{display:block;font-size:clamp(1.3rem,2.3vw,1.9rem);font-weight:800;line-height:1.6;margin:4px 0 8px;color:#fff}
+.introtxt p{margin:0;font-size:1.1rem;line-height:2;color:#e9f1ff;font-weight:500}
+.foot{position:relative;z-index:1;max-width:1100px;width:calc(100% - 24px);margin:0 auto 24px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:14px 20px;border:1px solid #ffffff2e;border-radius:20px;background:#0a2347b3;backdrop-filter:blur(12px);color:#c9d8f0;font-size:.98rem;text-align:center}
+.foot p{margin:0;line-height:1.8}
+.flogo{display:inline-flex;background:#fff;border-radius:12px;padding:4px 12px}
+.flogo img{display:block;height:34px;width:auto}
+@media(min-width:1600px){.foot{max-width:1760px}}
+@media print{.foot{display:none}}
+.foot{background:none;border:0;border-radius:0;backdrop-filter:none;box-shadow:none;padding:6px 12px 22px;margin:0 auto}
+.foot p{color:#c9d8f0}
+body.sp-hide header,body.sp-hide main,body.sp-hide footer,body.sp-hide #floaters,body.sp-hide .orb{visibility:hidden}
+.fl{text-shadow:none}
+@page{size:A4 landscape;margin:0}
+@media print{
+  html,body{margin:0!important;padding:0!important;background:#fff!important;width:297mm!important;height:209.6mm!important;overflow:hidden!important}
+  body>*:not(main){display:none!important}
+  main#app{display:block!important;margin:0!important;padding:0!important;max-width:none!important;width:297mm!important}
+  #app>*:not(.certbox){display:none!important}
+  #app>.certbox{display:block!important;position:relative!important;width:297mm!important;max-width:none!important;height:209.6mm!important;aspect-ratio:auto!important;margin:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden!important;break-inside:avoid;break-after:avoid;page-break-inside:avoid;page-break-after:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #app>.certbox>img{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.certactions{display:flex;gap:12px;justify-content:center;align-items:stretch;flex-wrap:wrap;margin:16px 0 8px}
+.certactions button{margin:0;min-width:180px;padding:13px 24px;border-radius:14px;font-size:1.02rem;font-weight:700;line-height:1.4;text-align:center;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s}
+.certactions button:hover{transform:translateY(-2px)}
+.certactions .opt{width:auto;color:#fff;background:#ffffff14;border:2px solid #ffffff40}
+.certactions .opt.on{border-color:var(--ok);background:#0b4a52;box-shadow:0 0 16px #2dd4bf44}
+.certactions .opt:hover{border-color:#3fd8ff}
+@media(max-width:560px){.certactions button{flex:1 1 100%}}
+.nstat b.mix{direction:inherit}
+.nstat .npre{font-style:normal;font-weight:800;font-size:.55em;margin-inline-end:.12em}
+.nstat b{font-size:clamp(1.8rem,3.6vw,3.2rem)}
+.nstat b.mix{white-space:nowrap}
+.nstat .npre{font-size:1em;margin-inline-end:0}
+
+/* ===== PERF OVERRIDES ===== */
+body{background:#04122a;background-attachment:scroll}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;transform:translateZ(0);background:radial-gradient(900px 500px at 85% 8%,#ff2d8a55,transparent 60%),radial-gradient(800px 600px at 8% 30%,#00e5ff44,transparent 60%),radial-gradient(900px 700px at 60% 100%,#7c3aed66,transparent 60%),linear-gradient(160deg,#04122a,#0a2a55 55%,#12063a)}
+.card,.opt,.glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:#0c2a54d9}
+.note{background:#0f4a52e6}
+header{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+#natmodal{-webkit-backdrop-filter:none;backdrop-filter:none}
+.home .glass,.how .step,.how .path{will-change:auto}
+@media print{body::before{display:none}}
+
+/* ===== MOBILE HEADER ===== */
+@media(max-width:700px){
+header{top:8px;width:calc(100% - 16px);padding:6px 10px;gap:4px 8px;border-radius:16px;flex-wrap:wrap;justify-content:space-between}
+.logo{padding:2px 8px;border-radius:9px}
+.logo img{height:26px}
+.seg{padding:2px}
+.seg button{padding:3px 12px;font-size:.85rem}
+nav{order:3;flex:0 0 100%;flex-wrap:nowrap;overflow-x:auto;gap:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:none;white-space:nowrap;padding:4px 11px;font-size:.85rem}
+}
+
+/* ===== PRINT FIX ===== */
+@media print{
+html,body{height:209mm!important}
+#app{height:209mm!important;overflow:hidden!important;opacity:1!important}
+#app>.certbox{height:209mm!important;opacity:1!important;visibility:visible!important;transform:none!important;filter:none!important}
+#app>.certbox *{opacity:1!important;visibility:visible!important}
+}
+</style>
+</head>
+<body>
+<header><div class="logo" id="logo"></div><nav id="nav"></nav><div class="seg" id="seg"></div></header>
+<div id="splash" role="dialog" aria-label="UAE CODE">
+  <canvas id="spc" aria-hidden="true"></canvas>
+  <div class="sp-ring r1"></div><div class="sp-ring r2"></div>
+  <div class="sp-center" dir="ltr">
+    <h1 class="sp-title" aria-label="UAE CODE"><span aria-hidden="true"><b>U</b><b>A</b><b>E</b><b class="gap"></b><b>C</b><b>O</b><b>D</b><b>E</b></span></h1>
+    <p class="sp-cap">AL FALAH ACADEMY • AL JIMI BRANCH</p>
+    <div class="sp-bar"><i></i></div>
+  </div>
+</div>
+<div id="floaters" aria-hidden="true"></div>
+<div class="orb" id="orb" aria-hidden="true"></div>
+<main id="app"></main>
+<footer id="foot" class="foot"></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* ===== الإعدادات / Settings ===== */
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbw6Zai8yU4kKx4Zofh04bLX0ViXCuCgJjaEOPaxXaYO6nyYB9W0CZlQaxTsQqMlnlTd/exec"; // رابط Web App من Apps Script
+const ORG = {ar:"أكاديمية الفلاح - فرع الجيمي", en:"Al Falah Academy - Al Jimi Branch"};
+const EVENT_DATE = "29 October 2026";
+const CERT_DATE = "29 أكتوبر 2026";
+// التاريخ يُحسب تلقائيًا من جهاز المستخدم (تاريخ اليوم)
+const fmtDate = (d, lang) => new Intl.DateTimeFormat(lang === "en" ? "en-GB" : "ar-u-nu-latn", {day: "numeric", month: "long", year: "numeric"}).format(d);
+const DATE_UI = {ar: fmtDate(new Date(), "ar"), en: fmtDate(new Date(), "en")};
+const TEACHER = {ar:"أ. أحمد عبدالرحمن", en:"Mr. Ahmed Abdelrahman"}; // المعلم المشرف
+const PRINCIPAL = {ar:"د. محمد نظيف", en:"Dr. Mohammed Nazif"}; // مدير المدرسة
+const LOGO_URL = "logo-header.png"; // شعار المدرسة في الشريط العلوي
+const NAV = [["home",{ar:"الرئيسية",en:"Home"}],["how",{ar:"كيف تعمل؟",en:"How it works"}],["learn",{ar:"ماذا ستتعلم؟",en:"What you’ll learn"}],["nat",{ar:"البرنامج الوطني",en:"National Programme"}],["role",{ar:"اختر دورك",en:"Choose role"}]];
+
+/* ===== النصوص / Text ===== */
+const T = {
+ar:{brand:"نبرمج لنبتكر",tag:"معًا نبرمج، معًا نبتكر، ومعًا نصنع مستقبل الإمارات",sub:"كودك جزء من الحكاية… شارك في صناعة مستقبل الإمارات. اكتشف مستواك، تعلّم مهارة جديدة، واختبر قدراتك في رحلة تفاعلية تنتهي ببصمتك في الكود الجماعي ضمن فعاليات «شهر الإمارات للابتكار 2026».",start:"ابدأ الرحلة",lit:"قطعة مضيئة حتى الآن",role:"اختر دورك",roles:["طالب / طالبة","معلم / معلمة","ولي أمر","إدارة"],
+ pt:"من أين نبدأ؟",pn:"«لا أعرف» إجابة ممتازة. نستخدمها لضبط مستوى الشرح فقط.",next:"التالي",lv:["مبتدئ","مستكشف","تحدٍّ متقدم"],lvMsg:"مستواك:",go:"ابدأ المحطات",st:"المحطة",of:"من",concept:"الفكرة",code:"الكود",check:"سؤال المحطة",impact:"قياس الأثر",done:"أنهيت المحطات الست!",toImpact:"انتقل لقياس الأثر",
+ name:"الاسم الكامل",school:"اسم المدرسة",emirate:"الإمارة",em:["أبوظبي","دبي","الشارقة","عجمان","أم القيوين","رأس الخيمة","الفجيرة"],
+ q2:"كيف تصف معرفتك بالبرمجة الآن؟",q3:"أصبحت أفهم التفكير البرمجي بشكل أفضل",q4:"أشعر بثقة أكبر في حل المشكلات بالمنطق",q5:"ما أكثر شيء أعجبك؟ (اختياري)",
+ send:"أرسل واحصل على الشهادة",sending:"جارٍ الإرسال…",need:"أكمل الاسم والمدرسة والإمارة.",cert:"شهادة مشاركة",given:"تُمنح إلى",forDone:"لإتمام تحدي «نبرمج لنبتكر» ضمن شهر الإمارات للابتكار",print:"طباعة / حفظ PDF",mine:"قطعتك تضيء الآن باللون الأخضر",score:"نتيجتك"},
+en:{brand:"We Code to Innovate",tag:"Together we code, together we innovate, and together we shape the UAE’s future",sub:"Your code is part of the story… help shape the UAE’s future. Discover your level, learn a new skill and test your abilities in an interactive journey that ends with your mark in the Collective Code, as part of UAE Innovation Month 2026.",start:"Start the journey",lit:"pieces lit so far",role:"Choose your role",roles:["Student","Teacher","Parent","Administrator"],
+ pt:"Where should we start?",pn:"“I don't know” is a great answer. It only tunes how much we explain.",next:"Next",lv:["Beginner","Explorer","Advanced challenge"],lvMsg:"Your level:",go:"Start the stations",st:"Station",of:"of",concept:"The idea",code:"Code",check:"Station question",impact:"Impact survey",done:"You finished all six stations!",toImpact:"Go to the impact survey",
+ name:"Full name",school:"School name",emirate:"Emirate",em:["Abu Dhabi","Dubai","Sharjah","Ajman","Umm Al Quwain","Ras Al Khaimah","Fujairah"],
+ q2:"How would you describe your coding knowledge now?",q3:"I understand computational thinking better",q4:"I feel more confident solving problems with logic",q5:"What did you like most? (optional)",
+ send:"Submit and get certificate",sending:"Sending…",need:"Fill in name, school and emirate.",cert:"Certificate of Participation",given:"Awarded to",forDone:"for completing the We Code to Innovate challenge during UAE Innovation Month",print:"Print / Save PDF",mine:"Your piece is now lit in green",score:"Your score"}};
+
+const PLACE = [
+ {q:{ar:"قبل اليوم، كيف تصف معرفتك بالبرمجة؟",en:"Before today, how would you describe your coding knowledge?"},o:[{ar:"تقريبًا لا شيء",en:"Almost nothing"},{ar:"أعرف الفكرة ببساطة",en:"I know the basic idea"},{ar:"جرّبت البرمجة من قبل",en:"I've tried coding"}],pts:[0,1,2]},
+ {q:{ar:"IF raining THEN take_umbrella — إذا كان الشرط صحيحًا ماذا يحدث؟",en:"IF raining THEN take_umbrella — if the condition is true, what happens?"},o:[{ar:"نأخذ المظلة",en:"We take the umbrella"},{ar:"لا يحدث شيء",en:"Nothing happens"},{ar:"لا أعرف",en:"I don't know"}],ok:0},
+ {q:{ar:"ما قيمة points بعد: points = 2 ثم points = points + 1 ؟",en:"What is points after: points = 2 then points = points + 1 ?"},o:[{ar:"1",en:"1"},{ar:"2",en:"2"},{ar:"3",en:"3"},{ar:"لا أعرف",en:"I don't know"}],ok:2}
+];
+
+const ST = [
+ {n:{ar:"التسلسل Sequence",en:"Sequence"},i:{ar:"الكمبيوتر ينفّذ الأوامر واحدًا بعد الآخر، بالترتيب الذي كتبته. تغيير الترتيب يغيّر النتيجة.",en:"A computer runs commands one after another, in the order you wrote them. Change the order, change the result."},c:"1. open_door()\n2. walk_in()\n3. turn_on_light()",
+  q:{ar:"أي ترتيب صحيح لصنع الشاي؟",en:"Which order makes tea correctly?"},o:[{ar:"اسكب الماء ← أضف الشاي ← اغلِ الماء",en:"Pour water → add tea → boil water"},{ar:"اغلِ الماء ← أضف الشاي ← اسكب في الكوب",en:"Boil water → add tea → pour into cup"},{ar:"اسكب في الكوب ← اغلِ الماء",en:"Pour into cup → boil water"}],ok:1},
+ {n:{ar:"المتغيرات Variables",en:"Variables"},i:{ar:"المتغير صندوق باسم يحفظ قيمة، ويمكن تغيير ما بداخله.",en:"A variable is a named box that stores a value you can change."},c:"points = 5\npoints = points + 2",
+  q:{ar:"بعد الكود أعلاه، كم قيمة points؟",en:"After the code above, what is points?"},o:[{ar:"5",en:"5"},{ar:"7",en:"7"},{ar:"2",en:"2"}],ok:1},
+ {n:{ar:"المدخلات والمخرجات Input / Output",en:"Input / Output"},i:{ar:"المدخل ما يعطيه المستخدم للبرنامج، والمخرج ما يعرضه البرنامج له.",en:"Input is what the user gives the program; output is what it shows back."},c:'name = input("Your name?")\nprint("Hello " + name)',
+  q:{ar:"إذا كتب المستخدم Sara، ما المخرج؟",en:"If the user types Sara, what is printed?"},o:[{ar:"Hello name",en:"Hello name"},{ar:"Hello Sara",en:"Hello Sara"},{ar:"Sara",en:"Sara"}],ok:1},
+ {n:{ar:"الشرط IF",en:"Selection IF"},i:{ar:"البرنامج يختار مسارًا بحسب شرط: إن تحقق يفعل شيئًا، وإلا يفعل غيره.",en:"A program picks a path by a condition: if true it does one thing, otherwise another."},c:"IF score >= 5 THEN\n  print(\"Win\")\nELSE\n  print(\"Try again\")",
+  q:{ar:"إذا كانت score = 3 ماذا يُطبع؟",en:"If score = 3, what is printed?"},o:[{ar:"Win",en:"Win"},{ar:"Try again",en:"Try again"},{ar:"لا شيء",en:"Nothing"}],ok:1},
+ {n:{ar:"التكرار Loops",en:"Loops"},i:{ar:"بدل كتابة الأمر مرات كثيرة، نكرره بحلقة.",en:"Instead of writing a command many times, repeat it with a loop."},c:"REPEAT 3 TIMES:\n  jump()",
+  q:{ar:"كم مرة تُنفَّذ jump()؟",en:"How many times does jump() run?"},o:[{ar:"1",en:"1"},{ar:"3",en:"3"},{ar:"مرة واحدة ثم تتوقف",en:"Once, then stops"}],ok:1},
+ {n:{ar:"إصلاح الأخطاء Debugging",en:"Debugging"},i:{ar:"الخطأ جزء طبيعي من البرمجة. نقرأ النتيجة، نقارنها بالمتوقع، ونصلح السطر المسبّب.",en:"Bugs are normal. Read the result, compare it to what you expected, fix the guilty line."},c:"total = 2 + 2\nprint(total)  # expected 5, got 4",
+  q:{ar:"ما الخطوة الأولى لإصلاح الخطأ؟",en:"What is the first step to fix a bug?"},o:[{ar:"مسح كل الكود",en:"Delete all the code"},{ar:"مقارنة النتيجة بالمتوقع وتحديد السطر",en:"Compare result to expected and find the line"},{ar:"تجاهله",en:"Ignore it"}],ok:1}
+];
+
+/* ===== الحالة / State ===== */
+const S = {lang:"ar",step:"home",role:null,p:0,pScore:0,level:0,i:0,score:0,picked:null,cl:"ar",hdrIn:false,hold:false,ak:"",ctk:"",fx:"",count:0,roles:[0,0,0,0],hearts:3,pts:0,ph:"learn",done:false,wrong:[],last:0,g:{},mine:false,cert:null};
+const app = document.getElementById("app");
+const t = k => T[S.lang][k];
+const L = o => o[S.lang];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const rnd = (() => { let x = 7; return () => (x = (x * 16807) % 2147483647) / 2147483647; })();
+
+const FONT = {U:["10001","10001","10001","10001","10001","10001","01110"],E:["11111","10000","10000","11110","10000","10000","11111"],A:["01110","10001","10001","11111","10001","10001","10001"],C:["01111","10000","10000","10000","10000","10000","01111"],O:["01110","10001","10001","10001","10001","10001","01110"],D:["11110","10001","10001","10001","10001","10001","11110"]};
+const TXT = "UAE CODE";
+function buildLayout(lines, K) {
+  const G = 2 * K, w = ln => (ln.length * 6 - 1) * K;
+  const cols = Math.max(...lines.map(w)), rows = lines.length * 7 * K + (lines.length - 1) * G;
+  const on = new Array(cols * rows).fill(false);
+  lines.forEach((ln, li) => {
+    const r0 = li * (7 * K + G), c0 = Math.floor((cols - w(ln)) / 2);
+    for (let r = 0; r < 7 * K; r++) for (let c = 0; c < w(ln); c++) {
+      const fr = Math.floor(r / K), fc = Math.floor(c / K), ch = ln[Math.floor(fc / 6)], cc = fc % 6;
+      if (cc < 5 && FONT[ch] && FONT[ch][fr][cc] === "1") on[(r0 + r) * cols + c0 + c] = true;
+    }
+  });
+  const idx = []; on.forEach((v, i) => { if (v) idx.push(i); });
+  const rank = {}; idx.slice().sort(() => rnd() - .5).forEach((k, n) => { rank[k] = n; });
+  return {cols, rows, total: cols * rows, n: idx.length, rank};
+}
+const LAY = {stack: buildLayout([TXT], 1), line: buildLayout([TXT], 1)};
+const PAL = ["#ff3d6e", "#2ee6a0", "#ffffff", "#3fd8ff"];
+function grid(extra, mode) {
+  const m = mode || "line", Ly = LAY[m], lit = Math.min(S.count, Ly.n);
+  let h = '<div class="board ' + m + '" style="grid-template-columns:repeat(' + Ly.cols + ',1fr)" aria-hidden="true">';
+  for (let k = 0; k < Ly.total; k++) {
+    const rk = Ly.rank[k];
+    if (rk === undefined) { h += '<i class="x"></i>'; continue; }
+    if (rk < lit) {
+      if (extra && rk === lit - 1) h += '<i class="me"></i>';
+      else { const c = PAL[rk % 4]; h += '<i class="on" style="background:' + c + ';color:' + c + '"></i>'; }
+    } else h += '<i></i>';
+  }
+  return h + "</div>";
+}
+function bar(a, b) { return '<div class="bar"><i style="width:' + (a / b * 100) + '%"></i></div>'; }
+
+function render(keep) {
+  document.documentElement.lang = S.lang;
+  document.documentElement.dir = S.lang === "ar" ? "rtl" : "ltr";
+  document.getElementById("logo").innerHTML = LOGO_URL ? '<img src="' + esc(LOGO_URL) + '" alt="' + esc(L(ORG)) + '">' : esc(L(ORG));
+  document.getElementById("foot").innerHTML = '<p><bdi>© 2026</bdi> ' + esc(L(ORG)) + (S.lang === "ar" ? ". جميع الحقوق محفوظة." : ". All rights reserved.") + '</p>';
+  document.getElementById("foot").style.display = S.step === "home" ? "" : "none";
+  document.getElementById("nav").innerHTML = NAV.map(([k, l]) => '<button class="' + (k === S.step ? "on" : "") + '" data-n="' + k + '">' + L(l) + '</button>').join("");
+  document.getElementById("seg").innerHTML = ["en", "ar"].map(l => '<button class="' + (S.lang === l ? "on" : "") + '" data-l="' + l + '">' + l.toUpperCase() + '</button>').join("");
+  { const on = document.querySelector("#nav .on"); if (on && on.scrollIntoView) on.scrollIntoView({inline: "center", block: "nearest"}); }
+  document.querySelectorAll("[data-n]").forEach(el => el.onclick = () => { if (["board", "how", "learn", "nat"].includes(el.dataset.n)) act(el.dataset.n, 0); else { S.step = el.dataset.n; render(); } });
+  document.querySelectorAll("[data-l]").forEach(el => el.onclick = () => { S.lang = el.dataset.l; render(); });
+  const f = {home, role: roleV, place: placeV, level: levelV, st: stV, win: winV, form: formV, cert: certV}[S.step];
+  app.innerHTML = f();
+  app.className = S.step === "home" ? "wide" : "narrow";
+  anim();
+  if (S.step === "cert") fit();
+  app.querySelectorAll("[data-a]").forEach(el => el.onclick = () => act(el.dataset.a, +el.dataset.v));
+  if (!keep) window.scrollTo(0, 0);
+}
+
+const B = {
+ badge:{ar:"تجربة وطنية تفاعلية",en:"Interactive national experience"},
+ see:{ar:"شاهد الكود الجماعي",en:"See the Collective Code"},
+ now:{ar:"المشاركون الآن",en:"Participants now"},
+ add:{ar:"أضف قطعتك إلى اللوحة +",en:"Add your piece +"},
+ note:{ar:"القطع الداكنة تُظهر شكل العبارة، والمضيئة تمثل المشاركات الفعلية.",en:"Dark pieces show the phrase; lit pieces are real participants."},
+ chips:[{ar:"تعلّم متكيّف حسب معرفتك",en:"Adaptive learning"},{ar:"كود جماعي حي",en:"Live collective code"},{ar:"محطات تفاعلية",en:"Interactive stations"}],
+ who:[{e:"🎓",ar:"طلبة",en:"Students"},{e:"👩‍🏫",ar:"معلمون",en:"Teachers"},{e:"👨‍👩‍👧",ar:"أولياء أمور",en:"Parents"},{e:"🏫",ar:"إدارة",en:"Admin"}]
+};
+function homeTop() {
+  return '<div class="home"><section class="glass"><div class="hero-top"><span class="pill dot"><bdi>' + L(DATE_UI) + '</bdi> • ' + L(B.badge) + '</span></div>' +
+    '<div class="title">' + t("brand") + '</div><p class="tag">' + t("tag") + '</p><p>' + t("sub") + '</p>' +
+    '<div class="hbtns"><button class="btn" data-a="start">' + t("start") + ' 🚀</button><button class="btn blue" data-a="board">' + L(B.see) + ' ✨</button></div>' +
+    '<div style="margin-top:16px">' + B.chips.map(c => '<span class="pill">' + L(c) + '</span>').join("") + '</div></section>' +
+    '<section class="glass boardcard" id="board">' + grid(false, "stack") +
+    '<p class="mut" style="text-align:center;margin:4px auto"><b class="ct" data-n="' + S.count + '" style="color:var(--lit)">' + S.count + '</b> ' + t("lit") + '</p>' +
+    '<p class="mut" style="text-align:center;font-size:.9rem;margin:4px auto">' + L(B.note) + '</p>' +
+    '<div style="text-align:center"><button class="btn blue" data-a="start">' + L(B.add) + '</button></div>' +
+    '<h3 class="nowh">' + L(B.now) + '</h3><div class="stats">' +
+    B.who.map((w, k) => '<div class="stat">' + w.e + '<b class="ct" data-n="' + S.roles[k] + '">' + S.roles[k] + '</b>' + L(w) + '</div>').join("") +
+    '</div></section></div>';
+}
+const J = {
+ t:{ar:"رحلتك البرمجية… تتحرك معك",en:"Your coding journey… moves with you"},
+ d:{ar:"مسار متحرك ومحطات مضيئة، ومحتوى يتغير تلقائياً حسب معرفة المشارك ودوره.",en:"An animated path with glowing stations, and content that adapts to each participant’s level and role."},
+ nodes:[
+  {e:"💡",c:"linear-gradient(135deg,#ff4d7a,#e0214f)",t:{ar:"فكّر كمبرمج",en:"Think like a coder"},d:{ar:"نبدأ من مستواك الحقيقي",en:"We start from your real level"}},
+  {e:"🧭",c:"linear-gradient(135deg,#4f8dff,#2563eb)",t:{ar:"Sequence",en:"Sequence"},d:{ar:"رتّب الخطوات والأوامر",en:"Order the steps and commands"}},
+  {e:"🔀",c:"linear-gradient(135deg,#22d89a,#12b574)",t:{ar:"Selection • IF",en:"Selection • IF"},d:{ar:"اتخذ قراراً بشرط",en:"Decide with a condition"}},
+  {e:"🔁",c:"linear-gradient(135deg,#b05cff,#7c3aed)",t:{ar:"Loops",en:"Loops"},d:{ar:"كرر بذكاء بدل التكرار اليدوي",en:"Repeat smartly, not by hand"}},
+  {e:"🐞",c:"linear-gradient(135deg,#fbbf24,#f59e0b)",t:{ar:"Debug & Finish",en:"Debug & Finish"},d:{ar:"اكتشف الخطأ وافتح الإنجاز",en:"Find the bug, unlock the badge"}}
+ ],
+ cards:[
+  {e:"🏃",t:{ar:"للطلبة: ألعاب برمجية تفاعلية",en:"For students: interactive coding games"},d:{ar:"ألعاب قصيرة ونقاط وقلوب وأسئلة تحقق، مع مستوى يتكيّف تلقائياً.",en:"Short games, points, hearts and checkpoint questions, with a level that adapts."}},
+  {e:"🧩",t:{ar:"للمجتمع: تعلّم سريع + تطبيق حقيقي",en:"For the community: quick learning + real practice"},d:{ar:"شرح بصري ثم كود مبسّط حسب مستوى المشارك.",en:"A visual explanation, then simple code at the participant’s level."}}
+ ]
+};
+function journeyV() {
+  return '<section class="glass journey"><h2 class="jtitle">' + L(J.t) + '</h2><p class="jdesc">' + L(J.d) + '</p>' +
+    '<div class="jrow"><div class="jline"><i class="jdot"></i></div>' +
+    J.nodes.map(n => '<div class="jnode"><div class="jicon" style="background:' + n.c + '">' + n.e + '</div><b>' + L(n.t) + '</b><small>' + L(n.d) + '</small></div>').join("") + '</div>' + '</section>';
+}
+const H = {
+ h:{ar:"من لا يعرف البرمجة… يبدأ من الصفر. ومن يعرفها… نرفع له التحدي.",en:"New to coding? Start from zero. Already know it? We raise the challenge."},
+ pb:{ar:"«نبرمج لنبتكر»",en:"“We Code to Innovate”"},
+ pt:{ar:"رحلتك تبدأ بالفضول… وتنتهي ببصمتك في الكود!",en:"Your journey starts with curiosity… and ends with your mark in the code!"},
+ pp:{ar:"اكتشف عالم البرمجة في تجربة تفاعلية ممتعة، صُممت لتناسب مستواك وتمنحك فرصة للتعلّم والتجربة والإبداع. ابدأ باكتشاف معرفتك، ثم انطلق في رحلة تتكيف مع إجاباتك؛ من فهم المفاهيم الأساسية، إلى قراءة الكود، وتوقّع النتائج، واكتشاف الأخطاء وتصحيحها.",en:"Discover the world of coding in a fun, interactive experience designed for your level, giving you the chance to learn, experiment and create. Start by discovering what you know, then set off on a journey that adapts to your answers: from understanding the basics, to reading code, predicting results, and finding and fixing bugs."},
+ nt:{ar:"لا تحتاج أي معرفة مسبقة",en:"No prior knowledge needed"},
+ nd:{ar:"يمكنك اختيار «لا أعرف» في البداية. المنصة ستشرح الفكرة بصرياً أولاً ثم تكشف الكود خطوة بخطوة.",en:"You can pick “I don't know” at the start. We explain the idea first, then reveal the code step by step."},
+ steps:[
+  {c:"linear-gradient(135deg,#22b8e8,#1aa0d8)",t:{ar:"اختر دورك",en:"Choose your role"},d:{ar:"طالب، معلم، ولي أمر أو إدارة. كل فئة تحصل على تجربة مناسبة لها.",en:"Student, teacher, parent or administrator. Each gets a fitting experience."},g:["Student","Teacher","Parent","Admin"],m:{ar:"يُسجَّل دورك مع إجاباتك في الشيت لقياس الأثر حسب الفئة.",en:"Your role is saved with your answers in the sheet, so impact can be measured per group."}},
+  {c:"linear-gradient(135deg,#5b6cff,#3d4fe0)",t:{ar:"فحص بداية ذكي",en:"Smart placement check"},d:{ar:"3 أسئلة خفيفة تحدد إن كنت مبتدئاً، مستكشفاً أو جاهزاً لتحدٍ أعلى.",en:"3 light questions decide if you're a beginner, explorer or ready for more."},g:["Adaptive","Beginner","Explorer","Challenge"],m:{ar:"«لا أعرف» تحتسب صفراً. النتيجة تحدد المستوى: المبتدئ يرى الفكرة فقط، والمستكشف يرى الفكرة والكود، والمتقدم يرى الكود مباشرة.",en:"“I don’t know” scores zero. Your score sets the level: beginners see the idea only, explorers see idea and code, advanced see the code directly."}},
+  {c:"linear-gradient(135deg,#c04dff,#8f3de0)",t:{ar:"تعلّم وطبّق",en:"Learn and apply"},d:{ar:"تتعلّم Sequence وVariables وInput/Output وIF وLoops وDebugging بأسلوب يناسب مستواك.",en:"Learn Sequence, Variables, Input/Output, IF, Loops and Debugging at your level."},g:["SEQUENCE","IF","LOOP","DEBUG"],m:{ar:"ست محطات: في كل محطة فكرة قصيرة ثم سؤال Checkpoint بتغذية راجعة فورية.",en:"Six stations: each has a short idea, then a checkpoint question with instant feedback."}},
+  {c:"linear-gradient(135deg,#1fd890,#12b574)",t:{ar:"اترك أثرك وافتح شهادتك",en:"Leave your mark, get your certificate"},d:{ar:"بعد التجربة، قياس أثر قصير ثم شهادة باسمك ومدرستك وإمارتك، وتضيء قطعة جديدة في الكود الجماعي.",en:"After the journey: a short impact survey, then a certificate with your name, school and emirate, and a new piece lights up in the Collective Code."},g:["Collective Code","Certificate","Impact"],m:{ar:"قياس الأثر يضم 3 تقييمات وتعليقاً اختيارياً، ثم تُفتح الشهادة وتضيء قطعتك.",en:"The survey has 3 ratings and an optional comment, then your certificate unlocks and your piece lights up."}}
+ ],
+ paths:[
+  {e:"🎮",t:{ar:"مسار الطلبة",en:"Students path"},s:{ar:"تعلّم ← أجب ← افتح التالي",en:"Learn → answer → unlock the next"},f:[{ar:"فحص البداية",en:"Placement"},{ar:"فكرة سريعة",en:"Quick idea"},{ar:"محطة تفاعلية",en:"Station"},{ar:"سؤال Checkpoint",en:"Checkpoint question"},{ar:"قياس الأثر",en:"Impact"},{ar:"الشهادة",en:"Certificate"}]},
+  {e:"🧠",t:{ar:"مسار المجتمع",en:"Community path"},s:{ar:"للمعلمين وأولياء الأمور والإدارة",en:"For teachers, parents and administrators"},f:[{ar:"فحص البداية",en:"Placement"},{ar:"شرح بصري",en:"Visual explanation"},{ar:"كود مبسط",en:"Simple code"},{ar:"تطبيق",en:"Practice"},{ar:"الشهادة",en:"Certificate"}]}
+ ],
+ learn:{ar:"ماذا ستتعلم؟",en:"What will you learn?"},
+ lc:["SEQUENCE","VARIABLES","INPUT / OUTPUT","IF / SELECTION","LOOPS","DEBUGGING"],
+ lt:[
+  {n:"SEQUENCE",e:"🧭",c:"#4f8dff",g:"linear-gradient(135deg,#4f8dff,#2563eb)",d:{ar:"ترتيب الأوامر",en:"Order of commands"},k:"1 → 2 → 3"},
+  {n:"VARIABLES",e:"📦",c:"#fbbf24",g:"linear-gradient(135deg,#fbbf24,#f59e0b)",d:{ar:"صندوق يحفظ قيمة",en:"A box that stores a value"},k:"points = 5"},
+  {n:"INPUT / OUTPUT",e:"⌨️",c:"#3fd8ff",g:"linear-gradient(135deg,#3fd8ff,#0ea5e9)",d:{ar:"ما يُدخله المستخدم وما يعرضه البرنامج",en:"What the user types and what the program shows"},k:"input() → print()"},
+  {n:"IF / SELECTION",e:"🔀",c:"#22d89a",g:"linear-gradient(135deg,#22d89a,#12b574)",d:{ar:"قرار بحسب شرط",en:"A decision by condition"},k:"IF x THEN …"},
+  {n:"LOOPS",e:"🔁",c:"#b05cff",g:"linear-gradient(135deg,#b05cff,#7c3aed)",d:{ar:"تكرار بدل الإعادة اليدوية",en:"Repeat instead of copying"},k:"REPEAT 3"},
+  {n:"DEBUGGING",e:"🐞",c:"#ff5c8a",g:"linear-gradient(135deg,#ff5c8a,#e0214f)",d:{ar:"اكتشاف الخطأ وإصلاحه",en:"Find the bug and fix it"},k:"expected 5 ≠ 4"}
+ ],
+ cta:{ar:"فهمت الفكرة — اختر دوري الآن",en:"Got it: choose my role"}
+};
+const N = {
+ badge:{ar:"مبادرة وطنية",en:"National initiative"},
+ t:{ar:"البرنامج الوطني للمبرمجين",en:"National Programme for Coders"},
+ d:{ar:"يهدف البرنامج إلى تنمية الاقتصاد الرقمي من خلال حزمة من المبادرات الوطنية لتطوير المواهب والخبرات والمشاريع المبتكرة في مجال البرمجة، وتسريع تبنّي تطبيقاتها في مختلف القطاعات، وإنشاء حلقة وصل بين مجتمع المبرمجين والجهات الحكومية والخاصة والأكاديمية.",en:"The programme aims to grow the digital economy through a package of national initiatives that develop talent, expertise and innovative coding projects, speed up their adoption across sectors, and link the coder community with government, private and academic institutions."},
+ sh:{ar:"ما الذي تقدمه الإمارات من خلال هذه المبادرة؟",en:"What the UAE offers through this initiative"},
+ stats:[
+  {n:100000,u:{ar:"مبرمج",en:"coders"},l:{ar:"تدريب واستقطاب خلال البرنامج",en:"to be trained and attracted"}},
+  {n:1000,u:{ar:"شركة رقمية كبرى",en:"major digital companies"},l:{ar:"يُنشأ منها خلال 5 أعوام",en:"to be created within 5 years"}},
+  {n:4,pre:{ar:"من 1.5 إلى",en:"From 1.5 to"},u:{ar:"مليارات درهم",en:"AED billion"},l:{ar:"استثمار موجّه للشركات الناشئة",en:"investment directed to startups"}}
+ ],
+ ph:{ar:"5 محاور رئيسية",en:"5 key pillars"},
+ pil:[
+  {e:"🤝",t:{ar:"دعم الأطراف المعنية",en:"Supporting stakeholders"},d:{ar:"المبرمجون ورواد الأعمال والشركات الناشئة والكبرى والقطاع الأكاديمي.",en:"Coders, entrepreneurs, startups, large companies and academia."}},
+  {e:"🧭",t:{ar:"منصة شاملة",en:"One platform"},d:{ar:"تجمع المبرمجين مع الشركات والجامعات المحلية.",en:"Connecting coders with local companies and universities."}},
+  {e:"🌍",t:{ar:"مبادرات عالمية",en:"Global initiatives"},d:{ar:"بإشراف نخبة من المدربين العالميين لتطوير كفاءة المواهب المحلية.",en:"Led by top international trainers to build local talent."}},
+  {e:"✈️",t:{ar:"استقطاب المواهب",en:"Attracting talent"},d:{ar:"جذب أفضل المهارات العالمية في البرمجة إلى دولة الإمارات.",en:"Bringing the world’s best coding skills to the UAE."}},
+  {e:"📜",t:{ar:"سياسات داعمة",en:"Enabling policies"},d:{ar:"اقتراح سياسات ممكّنة لقطاع المبرمجين بالتعاون مع الجهات الحكومية.",en:"Proposing enabling policies with government entities."}}
+ ],
+ vt:{ar:"الإقامة الذهبية للمبرمجين",en:"Golden Visa for coders"},
+ vd:{ar:"يهدف البرنامج إلى منح الإقامة الذهبية لأفضل 100,000 مبرمج من حول العالم، وتوفير تسهيلات وخيارات تمويلية لرواد الأعمال والمبرمجين، ودعم تنفيذ مشاريعهم وأفكارهم المبتكرة، وتأسيس شركات رقمية تدعم تنافسية الاقتصاد الوطني عالميًا.",en:"The programme aims to grant the Golden Visa to the top 100,000 coders worldwide, offer facilities and financing options for entrepreneurs and coders, support their projects and ideas, and found digital companies that strengthen the national economy’s global competitiveness."},
+ links:[
+  {u:"https://ai.gov.ae/ar/np4c/",t:{ar:"اقرأ المزيد عن البرنامج",en:"Read more about the programme"}}
+ ],
+ src:{ar:"المصدر: بوابة حكومة الإمارات (U.Ask). يُدار البرنامج بواسطة مكتب الذكاء الاصطناعي.",en:"Source: UAE Government Portal (U.Ask). The programme is run by the UAE AI Office. The link opens the official programme page (in Arabic)."}
+};
+function natV() {
+  return '<section class="glass nat" id="nat"><div class="nhead"><span class="pill">' + L(N.badge) + '</span><h2>' + L(N.t) + '</h2><p>' + L(N.d) + '</p></div>' +
+    '<h3 class="nsub">' + L(N.sh) + '</h3><div class="natstats">' +
+    N.stats.map(x => '<div class="nstat">' + (x.pre ? '<b class="mix"><i class="npre">' + L(x.pre) + '</i> <span class="nc" data-n="' + x.n + '">' + x.n.toLocaleString("en-US") + '</span></b>' : '<b class="nc" data-n="' + x.n + '">' + x.n.toLocaleString("en-US") + '</b>') + '<span>' + L(x.u) + '</span><em>' + L(x.l) + '</em></div>').join("") + '</div>' +
+    '<h3 class="nsub">' + L(N.ph) + '</h3><div class="natpil">' +
+    N.pil.map(x => '<div class="npil"><div class="nicon">' + x.e + '</div><b>' + L(x.t) + '</b><small>' + L(x.d) + '</small></div>').join("") + '</div>' +
+    '<div class="nvisa"><span class="nicon">🏅</span><b>' + L(N.vt) + '</b><p>' + L(N.vd) + '</p></div>' +
+    '<div class="nlinks">' + N.links.map(l => '<a href="' + l.u + '" target="_blank" rel="noopener noreferrer">' + L(l.t) + ' ↗</a>').join("") + '</div>' +
+    '<p class="nsrc">' + L(N.src) + '</p></section>';
+}
+function learnV() {
+  return '<section class="glass learn" id="learn"><div class="lhead"><b>' + L(H.learn) + '</b></div><div class="lgrid">' + H.lt.map(x => '<div class="ltile" style="--c:' + x.c + ';--g:' + x.g + '"><div class="licon">' + x.e + '</div><b>' + x.n + '</b><small>' + L(x.d) + '</small><code>' + x.k + '</code></div>').join("") + '</div></section>';
+}
+function howV() {
+  return '<section class="how" id="how"><h2 class="big">' + L(H.h) + '</h2>' +
+    '<div class="intro"><div class="glass note"><span style="font-size:2rem">🌱</span><div><b>' + L(H.nt) + '</b><small>' + L(H.nd) + '</small></div></div><div class="introtxt"><b class="ibrand">' + L(H.pb) + '</b><strong class="itag">' + L(H.pt) + '</strong><p>' + L(H.pp) + '</p></div></div>' +
+    '<div class="steps">' + H.steps.map((x, k) => '<article class="glass step' + (k === 0 ? " s0" : "") + '"><div class="num" style="background:' + x.c + '">' + (k + 1) + '</div><h3>' + L(x.t) + '</h3><p>' + L(x.d) + '</p>' +
+      (k === 0 ? '<div class="rolenotes">' + J.cards.map(c => '<div class="rnote"><span>' + c.e + '</span><div><b>' + L(c.t) + '</b><small>' + L(c.d) + '</small></div></div>').join("") + '</div>' : "") +
+      (k === 0 ? '<div class="rolegrid">' + T[S.lang].roles.map((r, i) => '<button class="opt rolebtn" data-a="role" data-v="' + i + '"><span>' + B.who[i].e + '</span>' + r + '</button>').join("") + '</div>'
+               : '<div class="tags">' + x.g.map(g => '<span>' + g + '</span>').join("") + '</div>') +
+      '<details class="more"><summary>' + (S.lang === "ar" ? "اعرف أكثر" : "Learn more") + '</summary><p>' + L(x.m) + '</p></details></article>').join("") + '</div>' +
+    '<div class="paths">' + H.paths.map(x => '<article class="glass path"><h3>' + x.e + ' ' + L(x.t) + '</h3><small>' + L(x.s) + '</small><div class="flow">' + x.f.map(f => '<span>' + L(f) + '</span>').join('<em>' + (S.lang === "ar" ? "←" : "→") + '</em>') + '</div></article>').join("") + '</div>' +
+    '<div class="cta"><button class="btn" data-a="start">' + L(H.cta) + ' 🚀</button></div></section>';
+}
+function home() { return homeTop() + learnV() + journeyV() + natV() + howV(); }
+function roleV() {
+  return '<h2>' + t("role") + '</h2><div class="opts">' +
+    t("roles").map((r, k) => '<button class="opt" data-a="role" data-v="' + k + '">' + r + '</button>').join("") + '</div>';
+}
+function placeV() {
+  const q = PLACE[S.p];
+  return bar(S.p, 3) + '<h2>' + t("pt") + '</h2><p class="mut">' + t("pn") + '</p><div class="card"><b class="q">' + (S.p + 1) + '. ' + L(q.q) + '</b><div class="opts">' +
+    q.o.map((o, k) => '<button class="opt" data-a="pick" data-v="' + k + '">' + L(o) + '</button>').join("") + '</div></div>';
+}
+function levelV() {
+  return '<h2>' + t("lvMsg") + ' ' + t("lv")[S.level] + '</h2><button class="btn" data-a="stations">' + t("go") + '</button>';
+}
+function stV0() {
+  const s = ST[S.i];
+  const showIdea = S.level < 2, showCode = S.level > 0;
+  let h = bar(S.i, 6) + '<p class="mut">' + t("st") + ' ' + (S.i + 1) + ' ' + t("of") + ' 6</p><h2>' + L(s.n) + '</h2>';
+  if (showIdea) h += '<div class="card"><b>' + t("concept") + '</b><p>' + L(s.i) + '</p></div>';
+  if (showCode) h += '<div class="card"><b>' + t("code") + '</b><pre>' + esc(s.c) + '</pre></div>';
+  h += '<div class="card"><b class="q">' + t("check") + ': ' + L(s.q) + '</b><div class="opts">';
+  s.o.forEach((o, k) => {
+    let c = "opt";
+    if (S.picked !== null) { if (k === s.ok) c += " ok"; else if (k === S.picked) c += " bad"; }
+    h += '<button class="' + c + '" ' + (S.picked !== null ? "disabled" : 'data-a="ans" data-v="' + k + '"') + '>' + L(o) + '</button>';
+  });
+  h += '</div></div>';
+  if (S.picked !== null) h += '<button class="btn" data-a="nextst">' + (S.i === 5 ? t("toImpact") : t("next")) + '</button>';
+  return h;
+}
+const CMD = ["turn_on()", "walk()", "pick_up_cube()"];
+const NODE = ["🧭", "📦", "⌨️", "🔀", "🔁", "🐞"];
+const GI = [
+ {ar:"رتّب الأوامر ليتحرك الروبوت ويلتقط المكعب: اضغط الأوامر بالترتيب الصحيح.",en:"Order the commands so the robot moves and grabs the cube: tap them in the right order."},
+ {ar:"اجعل points تساوي 7 باستخدام الأزرار. نبدأ من 5.",en:"Make points equal 7 using the buttons. We start at 5."},
+ {ar:"اكتب اسمك ثم اضغط تشغيل لترى المخرج.",en:"Type your name, then press run to see the output."},
+ {ar:"جرّب الحالتين: مطر وشمس، وشاهد قرار البرنامج.",en:"Try both cases, rain and sun, and watch the program decide."},
+ {ar:"اضبط التكرار ليقفز الروبوت 3 مرات ثم اضغط تشغيل.",en:"Set the loop so the robot jumps 3 times, then press run."},
+ {ar:"اضغط على السطر الذي فيه الخطأ (المتوقع 5).",en:"Tap the line with the bug (expected 5)."}
+];
+const WIN = {t:{ar:"هُورا! أنت بطل البرمجة!",en:"Hooray! You’re a coding champion!"},p:{ar:"أكمل الاستبيان القصير لتحصل على شهادتك.",en:"Finish the short survey to get your certificate."}};
+function initG() { S.g = {seq: [], v: 5, seen: [], w: -1, n: 1, msg: "", out: ""}; S.done = false; }
+function mapV() {
+  return '<div class="hud"><span>' + "❤️".repeat(S.hearts) + "🖤".repeat(3 - S.hearts) + '</span><span>⭐ ' + S.pts + '</span></div><div class="jmap">' +
+    NODE.map((n, k) => '<span class="jn ' + (k < S.i ? "d" : k === S.i ? "c" : "") + '">' + (k < S.i ? "✓" : n) + '</span>').join("") + '</div>';
+}
+function gameV() {
+  const g = S.g, ar = S.lang === "ar"; let h = '<p>' + L(GI[S.i]) + '</p>';
+  if (S.i === 0) h += '<div class="slots">' + [0, 1, 2].map(n => '<span class="slot">' + (g.seq[n] !== undefined ? CMD[g.seq[n]] : "?") + '</span>').join("") + '</div><div class="opts">' + [2, 0, 1].filter(k => !g.seq.includes(k)).map(k => '<button class="opt mono" data-a="sq" data-v="' + k + '">' + CMD[k] + '</button>').join("") + '</div>';
+  if (S.i === 1) h += '<pre>points = ' + g.v + '</pre><div class="rowbtn"><button class="opt" data-a="vp" data-v="1">points + 1</button><button class="opt" data-a="vp" data-v="2">points + 2</button><button class="opt" data-a="vp" data-v="0">↺</button></div>';
+  if (S.i === 2) h += '<input id="io" type="text" placeholder="Sara" maxlength="20" aria-label="name"><pre>name = input()\nprint("Hello " + name)</pre><button class="btn blue" data-a="ioRun">▶ ' + (ar ? "تشغيل" : "Run") + '</button>' + (g.out ? '<pre>Hello ' + esc(g.out) + '</pre>' : "");
+  if (S.i === 3) h += '<pre>IF raining THEN take_umbrella</pre><div class="rowbtn"><button class="opt" data-a="ifs" data-v="0">☔ raining</button><button class="opt" data-a="ifs" data-v="1">☀ sunny</button></div>' + (g.w >= 0 ? '<pre>' + (g.w === 0 ? "☔ → take_umbrella" : "☀ → (nothing)") + '</pre>' : "");
+  if (S.i === 4) h += '<div class="rowbtn"><button class="opt" data-a="lc" data-v="-1">−</button><b style="font-size:1.4rem">' + g.n + '</b><button class="opt" data-a="lc" data-v="1">+</button></div><pre>REPEAT ' + g.n + ' TIMES:\n  jump()</pre><div class="runner">' + "🏃".repeat(g.n) + '</div><button class="btn blue" data-a="lrun">▶ ' + (ar ? "تشغيل" : "Run") + '</button>';
+  if (S.i === 5) h += '<div class="lines">' + ["a = 2", "b = 3", "total = a - b", "print(total)   # expected 5"].map((c, k) => '<button class="opt mono" data-a="bug" data-v="' + k + '">' + (k + 1) + '&nbsp;&nbsp;' + esc(c) + '</button>').join("") + '</div>';
+  if (g.msg && !S.done) h += '<p style="color:var(--lit)">' + g.msg + '</p>';
+  if (S.done) h += '<p style="color:var(--ok);font-weight:700">' + (ar ? "✅ أحسنت! اجتزت اللعبة" : "✅ Well done! Game cleared") + '</p><button class="btn" data-a="gcheck">' + (ar ? "افتح سؤال المحطة" : "Open the checkpoint question") + '</button>';
+  return h;
+}
+function stuV() {
+  const s = ST[S.i], ar = S.lang === "ar";
+  let h = mapV() + '<p class="mut">' + t("st") + ' ' + (S.i + 1) + ' ' + t("of") + ' 6</p><h2>' + L(s.n) + '</h2>';
+  if (S.ph === "learn") {
+    if (S.level < 2) h += '<div class="card"><b>' + t("concept") + '</b><p>' + L(s.i) + '</p></div>';
+    if (S.level > 0) h += '<div class="card"><b>' + t("code") + '</b><pre>' + esc(s.c) + '</pre></div>';
+    h += '<button class="btn" data-a="learned">' + (ar ? "فهمت، ابدأ اللعب 🎮" : "Got it, start playing 🎮") + '</button>';
+  } else if (S.ph === "play") {
+    h += '<div class="card">' + gameV() + '</div>';
+  } else {
+    h += '<div class="card"><b class="q">' + t("check") + ': ' + L(s.q) + '</b><div class="opts">' + s.o.map((o, k) => {
+      const lock = S.picked !== null || S.wrong.includes(k) || S.hearts === 0;
+      return '<button class="opt' + (S.picked === k ? " ok" : S.wrong.includes(k) ? " bad" : "") + '" ' + (lock ? "disabled" : 'data-a="sans" data-v="' + k + '"') + '>' + L(o) + '</button>';
+    }).join("") + '</div></div>';
+    if (S.picked !== null) h += '<p style="color:var(--ok);font-weight:700">✅ +' + S.last + ' ⭐</p><button class="btn" data-a="snext">' + (S.i === 5 ? t("toImpact") : t("next")) + '</button>';
+    else if (S.hearts === 0) h += '<p style="color:var(--bad)">' + (ar ? "انتهت المحاولات الثلاث. محطاتك المكتملة محفوظة." : "Out of attempts. Your finished stations are saved.") + '</p><button class="btn" data-a="retry">' + (ar ? "حاول مجددًا" : "Try again") + '</button>';
+    else if (S.wrong.length) h += '<p style="color:var(--lit)">' + (ar ? "ليست الإجابة الصحيحة، جرّب خيارًا آخر." : "Not quite, try another option.") + '</p>';
+  }
+  return h;
+}
+function stV() { return S.role === 0 ? stuV() : stV0(); }
+function winV() {
+  return '<div class="glass" style="text-align:center"><div style="font-size:4rem">🏆</div><h2>' + L(WIN.t) + '</h2><p style="margin-inline:auto">' + L(WIN.p) + '</p><p class="mut">⭐ ' + S.pts + ' &nbsp; ' + t("score") + ': ' + S.score + ' / 6</p><button class="btn" data-a="winnext">' + t("toImpact") + '</button></div>';
+}
+function formV() {
+  return '<h2>' + t("done") + '</h2><p class="mut">' + t("score") + ': ' + S.score + ' / 6</p><div class="card"><h2>' + t("impact") + '</h2>' +
+    '<label for="f-name">' + t("name") + '</label><input id="f-name" type="text" autocomplete="name" maxlength="80">' +
+    '<div class="row"><div><label for="f-school">' + t("school") + '</label><input id="f-school" type="text" maxlength="120" value="' + esc(L(ORG)) + '"></div>' +
+    '<div><label for="f-em">' + t("emirate") + '</label><select id="f-em">' + t("em").map(e => '<option>' + e + '</option>').join("") + '</select></div></div>' +
+    [["f-after", "q2"], ["f-und", "q3"], ["f-conf", "q4"]].map(([id, k]) => '<label for="' + id + '">' + t(k) + '</label><select id="' + id + '">' + [1, 2, 3, 4, 5].map(n => '<option>' + n + '</option>').join("") + '</select>').join("") +
+    '<label for="f-com">' + t("q5") + '</label><textarea id="f-com" rows="2"></textarea>' +
+    '<p id="f-err" style="color:var(--bad)" role="alert"></p><button class="btn" id="f-send" data-a="send">' + t("send") + '</button></div>';
+}
+const NC = {
+ pre:{ar:"🎉 مبروك! حصلت على شهادتك",en:"🎉 Congratulations! You got your certificate"},
+ lead:{ar:"أصبحت جزءًا من الحكاية. تعرّف الآن كيف تدعم دولة الإمارات المبرمجين وتبني مستقبلها الرقمي.",en:"You’re now part of the story. Discover how the UAE supports coders and builds its digital future."},
+ stats:[{v:"100,000",l:{ar:"مبرمج يُدرَّبون ويُستقطبون",en:"coders trained and attracted"}},{v:"1,000",l:{ar:"شركة رقمية كبرى",en:"major digital companies"}},{v:"1.5 → 4",l:{ar:"مليارات درهم للشركات الناشئة",en:"AED billion for startups"}}],
+ more:{ar:"اكتشف التفاصيل في الموقع",en:"See the details on this site"},
+ later:{ar:"لاحقًا",en:"Later"}
+};
+function natPromptBody() {
+  return '<span class="pill">' + L(NC.pre) + '</span><h2>' + L(N.t) + '</h2><p>' + L(NC.lead) + '</p>' +
+    '<div class="nm-stats">' + NC.stats.map(x => '<div><b>' + x.v + '</b><span>' + L(x.l) + '</span></div>').join("") + '</div>' +
+    '<div class="nm-btns"><a class="btn" href="' + N.links[0].u + '" target="_blank" rel="noopener noreferrer">' + L(N.links[0].t) + ' ↗</a>';
+}
+function natCardV() {
+  return '<section class="glass natcta noprint">' + natPromptBody() + '<button class="btn blue" data-a="nat">' + L(NC.more) + '</button></div></section>';
+}
+let natPrev = null;
+function closeNat() {
+  const m = document.getElementById("natmodal"); if (!m) return;
+  m.remove(); if (natPrev && natPrev.focus) natPrev.focus();
+}
+function showNat() {
+  if (document.getElementById("natmodal")) return;
+  S.natSeen = true; natPrev = document.activeElement;
+  const m = document.createElement("div");
+  m.id = "natmodal"; m.setAttribute("role", "dialog"); m.setAttribute("aria-modal", "true"); m.setAttribute("aria-label", L(N.t));
+  m.innerHTML = '<div class="nm-box"><button class="nm-x" type="button" aria-label="' + L(NC.later) + '">✕</button>' + natPromptBody() +
+    '<button class="btn blue" type="button" id="nm-more">' + L(NC.more) + '</button><button class="opt nm-later" type="button">' + L(NC.later) + '</button></div></div>';
+  document.body.appendChild(m);
+  m.onclick = e => { if (e.target === m) closeNat(); };
+  m.querySelector(".nm-x").onclick = closeNat; m.querySelector(".nm-later").onclick = closeNat;
+  m.querySelector("#nm-more").onclick = () => { closeNat(); act("nat", 0); };
+  m.querySelector(".nm-x").focus();
+  if (window.gsap) { gsap.from(m, {autoAlpha: 0, duration: .4}); gsap.from(m.querySelector(".nm-box"), {y: 36, scale: .93, autoAlpha: 0, duration: .55, ease: "back.out(1.5)"}); }
+}
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeNat(); });
+function preloadCert() { [LOGO_URL].forEach(u => { const i = new Image(); i.src = u; }); }
+function certV() {
+  const c = S.cert, en = S.cl === "en";
+  const emi = en ? (T.en.em[T.ar.em.indexOf(c.emirate)] || c.emirate) : c.emirate;
+  const f = (cls, pos, txt) => '<div class="cf ' + cls + '" style="' + pos + '">' + txt + '</div>';
+  const X = en
+    ? {kicker:"Certificate of Completion", to:"This certificate is awarded to", sch:"School", emi:"Emirate", for:"For completing the challenge", prog:"We Code to Innovate", desc:"learning the fundamentals of programming as part of UAE Innovation Month 2026", ev:"Issued on " + fmtDate(new Date(c.date || Date.now()), "en"), t:"Supervising Teacher", p:"School Principal", id:"Certificate ID"}
+    : {kicker:"شهادة إتمام", to:"تُمنح هذه الشهادة إلى", sch:"المدرسة", emi:"الإمارة", for:"لإتمام تحدي", prog:"نبرمج لنبتكر", desc:"وتعلّم أساسيات البرمجة ضمن فعاليات شهر الإمارات للابتكار 2026", ev:"تاريخ الإصدار: " + fmtDate(new Date(c.date || Date.now()), "ar"), t:"المعلم المشرف", p:"مدير المدرسة", id:"رقم الشهادة"};
+  let h = '<div class="certbox dc ' + (en ? "ltr" : "rtl") + '" dir="' + (en ? "ltr" : "rtl") + '">' +
+    '<div class="dc-deco" aria-hidden="true"><i class="dc-red"></i><i class="dc-green"></i></div>' +
+    '<div class="dc-top"><span class="dc-school"><img src="' + esc(LOGO_URL) + '" alt="' + esc(L(ORG)) + '"></span></div>' +
+    '<div class="dc-body">' +
+      '<div class="dc-tag" dir="ltr">&lt;certificate /&gt;</div>' +
+      '<div class="dc-title">' + X.kicker + '</div>' +
+      '<div class="dc-to">' + X.to + '</div>' +
+      '<div class="dc-name fitx"><bdi>' + esc(c.name) + '</bdi></div>' +
+      '<div class="dc-rule"></div>' +
+      '<div class="dc-meta fitx">' + X.sch + ': <b><bdi>' + esc(c.school) + '</bdi></b> &nbsp;•&nbsp; ' + X.emi + ': <b>' + esc(emi) + '</b></div>' +
+      '<div class="dc-for">' + X.for + '</div>' +
+      '<div class="dc-prog">' + X.prog + '</div>' +
+      '<div class="dc-desc">' + X.desc + '</div>' +
+    '</div>' +
+    '<div class="dc-foot">' +
+      '<div class="dc-ev"><b>' + X.ev + '</b><span dir="ltr">#UAECodes</span></div>' +
+      '<div class="dc-sigs"><div class="dc-sig"><small>' + X.t + '</small><b>' + esc(en ? TEACHER.en : TEACHER.ar) + '</b></div><div class="dc-sig"><small>' + X.p + '</small><b>' + esc(en ? PRINCIPAL.en : PRINCIPAL.ar) + '</b></div></div>' +
+    '</div>' +
+    '<div class="dc-id">' + X.id + ': <bdi>' + esc(c.id) + '</bdi></div>';
+  return h + '</div><div class="noprint"><div class="certactions"><button type="button" class="opt' + (en ? "" : " on") + '" data-a="cl" data-v="0">الشهادة بالعربية</button><button type="button" class="opt' + (en ? " on" : "") + '" data-a="cl" data-v="1">English certificate</button><button type="button" class="btn" onclick="printCert()">' + t("print") + '</button></div><p class="mut" style="text-align:center;font-size:.9rem">' + (S.cl === "en" ? "Tip: choose Landscape in the print dialog." : "نصيحة: اختر الاتجاه «أفقي» (Landscape) من نافذة الطباعة.") + '</p>' +
+    grid(true) + '</div>' + natCardV();
+}
+function printCert() {
+  let s = document.getElementById("pg-land");
+  if (!s) { s = document.createElement("style"); s.id = "pg-land"; s.textContent = "@page{size:A4 landscape;margin:0}"; document.head.appendChild(s); }
+  if (window.gsap) gsap.set(".certbox", {clearProps: "opacity,visibility,transform"});
+  fit(); window.print();
+}
+function fit() {
+  document.querySelectorAll(".cf, .fitx").forEach(el => {
+    el.style.fontSize = ""; let fs = parseFloat(getComputedStyle(el).fontSize);
+    while (el.scrollWidth > el.clientWidth + 1 && fs > 8) { fs -= 1; el.style.fontSize = fs + "px"; }
+  });
+}
+
+function act(a, v) {
+  const ar = S.lang === "ar";
+  if (a === "board" || a === "how" || a === "learn" || a === "nat") { S.step = "home"; render(); const b = document.getElementById(a); if (b) b.scrollIntoView({behavior: "smooth"}); return; }
+  if (a === "start") S.step = "role";
+  else if (a === "role") { S.role = v; S.step = "place"; S.p = 0; S.pScore = 0; }
+  else if (a === "pick") {
+    const q = PLACE[S.p];
+    S.pScore += q.pts ? q.pts[v] : (v === q.ok ? 1 : 0);
+    if (++S.p === 3) { S.level = S.pScore <= 1 ? 0 : S.pScore <= 3 ? 1 : 2; S.step = "level"; }
+  }
+  else if (a === "stations") { S.step = "st"; S.i = 0; S.score = 0; S.picked = null; S.hearts = 3; S.pts = 0; S.ph = "learn"; S.done = false; S.wrong = []; initG(); preloadCert(); }
+  else if (a === "ans") { S.picked = v; if (v === ST[S.i].ok) S.score++; }
+  else if (a === "nextst") { S.picked = null; if (S.i === 5) S.step = "form"; else S.i++; }
+  else if (a === "learned") { initG(); S.ph = "play"; }
+  else if (a === "sq") { const g = S.g; g.seq.push(v); if (g.seq.length === 3) { if (g.seq.join() === "0,1,2") S.done = true; else { g.seq = []; g.msg = ar ? "الترتيب غير صحيح، جرّب مرة أخرى" : "Wrong order, try again"; } } }
+  else if (a === "vp") { const g = S.g; if (v === 0) { g.v = 5; g.msg = ""; } else { g.v += v; if (g.v === 7) S.done = true; else if (g.v > 7) g.msg = ar ? "تجاوزت 7، اضغط ↺ وأعد المحاولة" : "Over 7, press ↺ and retry"; } }
+  else if (a === "ioRun") { const x = document.getElementById("io").value.trim(); if (!x) S.g.msg = ar ? "اكتب اسمك أولاً" : "Type your name first"; else { S.g.out = x; S.done = true; } }
+  else if (a === "ifs") { const g = S.g; g.w = v; if (!g.seen.includes(v)) g.seen.push(v); if (g.seen.length === 2) S.done = true; }
+  else if (a === "lc") { S.g.n = Math.min(6, Math.max(1, S.g.n + v)); S.g.msg = ""; }
+  else if (a === "lrun") { if (S.g.n === 3) S.done = true; else S.g.msg = ar ? "الهدف 3 قفزات بالضبط" : "The goal is exactly 3 jumps"; }
+  else if (a === "bug") { if (v === 2) S.done = true; else S.g.msg = ar ? "هذا السطر سليم، ابحث في سطر آخر" : "That line is fine, look elsewhere"; }
+  else if (a === "gcheck") { S.ph = "check"; S.wrong = []; S.picked = null; }
+  else if (a === "sans") { const q = ST[S.i]; S.fx = v === q.ok ? "good" : "bad"; if (v === q.ok) { S.picked = v; S.last = S.wrong.length ? 5 : 10; S.pts += S.last; if (!S.wrong.length) S.score++; } else { S.wrong.push(v); S.hearts--; } }
+  else if (a === "snext") { S.picked = null; S.wrong = []; S.done = false; S.ph = "learn"; S.hearts = 3; if (S.i === 5) S.step = "win"; else S.i++; }
+  else if (a === "retry") { S.hearts = 3; S.wrong = []; S.picked = null; S.ph = "learn"; S.done = false; }
+  else if (a === "winnext") S.step = "form";
+  else if (a === "cl") S.cl = v ? "en" : "ar";
+  else if (a === "send") return submit();
+  render();
+}
+
+async function submit() {
+  const g = id => document.getElementById(id).value.trim();
+  const d = {
+    id: "WAC-" + Date.now().toString(36).toUpperCase().slice(-6) + Math.floor(rnd() * 90 + 10),
+    name: g("f-name"), school: g("f-school"), emirate: T.ar.em[document.getElementById("f-em").selectedIndex], role: T.ar.roles[S.role],
+    level: T.ar.lv[S.level], score: S.score, points: S.pts || 0, before: S.level + 1,
+    date: new Date().toISOString(), after: g("f-after"), understand: g("f-und"), confidence: g("f-conf"), comment: g("f-com")
+  };
+  if (!d.name || !d.school) { document.getElementById("f-err").textContent = t("need"); return; }
+  const btn = document.getElementById("f-send"); btn.disabled = true; btn.textContent = t("sending");
+  try {
+    if (!SHEET_URL.startsWith("PASTE")) await fetch(SHEET_URL, {method: "POST", mode: "no-cors", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(d)});
+  } catch (e) { console.error(e); }
+  S.count++; S.roles[S.role]++; S.cert = d; S.cl = S.lang; S.step = "cert"; render();
+  setTimeout(() => { if (S.step === "cert" && !S.natSeen) showNat(); }, 2800);
+}
+
+async function loadCount() {
+  try {
+    if (SHEET_URL.startsWith("PASTE")) return;
+    const r = await fetch(SHEET_URL); const j = await r.json();
+    const nc = j.count || 0, ch = nc !== S.count || (j.roles && j.roles.join() !== S.roles.join()); S.count = nc; if (j.roles) S.roles = j.roles; if (ch && S.step === "home") render(true);
+  } catch (e) {}
+}
+
+window.addEventListener("resize", () => { if (S.step === "cert") fit(); });
+window.addEventListener("beforeprint", () => { if (S.step === "cert") fit(); });
+window.addEventListener("afterprint", () => { if (S.step === "cert") fit(); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (S.step === "cert") fit(); });
+/* ===== GSAP animations ===== */
+let mm = null;
+function anim() {
+  if (!window.gsap || S.hold) return;
+  try {
+    const home = S.step === "home";
+    const key = S.step + ":" + S.i + ":" + S.ph + ":" + S.p + ":" + S.lang;
+    const fresh = key !== S.ak; S.ak = key;
+    const ctk = S.count + ":" + S.roles.join();
+    const ctChanged = home && ctk !== S.ctk; if (home) S.ctk = ctk;
+    const fx = S.fx; S.fx = "";
+    if (mm) mm.revert();
+    mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      animHeader();
+      if (home) animHome(fresh, ctChanged); else animStep(fresh, fx);
+    });
+  } catch (e) { console.error("anim", e); }
+}
+function animHeader() {
+  const items = gsap.utils.toArray("#logo, #nav button, #seg button");
+  if (!S.hdrIn) {
+    S.hdrIn = true;
+    gsap.from("header", {y: -70, autoAlpha: 0, duration: .8, ease: "power3.out"});
+    gsap.from(items, {y: -14, autoAlpha: 0, duration: .5, stagger: .08, delay: .25, ease: "power3.out"});
+  }
+  
+  
+  gsap.fromTo("#logo", {"--s": -1}, {"--s": 1, duration: 1.2, ease: "power1.inOut", repeat: -1, repeatDelay: 3});
+}
+function animHome(fresh, ctChanged) {
+  if (fresh) {
+    const tl = gsap.timeline({defaults: {duration: .7, ease: "power3.out"}});
+    tl.from(".home .pill.dot", {y: -14, autoAlpha: 0, stagger: .12})
+      .from(".home .title", {y: 30, scale: .92, autoAlpha: 0, duration: .9}, "<.1")
+      .from(".home > section > p", {y: 20, autoAlpha: 0, stagger: .12}, "<.25")
+      .from(".home .btn", {y: 20, autoAlpha: 0, stagger: .1}, "<.2")
+      .from(".home .pill:not(.dot)", {scale: .8, autoAlpha: 0, stagger: .08}, "<.1")
+      .from("#board", {y: 40, autoAlpha: 0, duration: .8}, .2)
+      .from(".stat", {y: 24, autoAlpha: 0, stagger: .1}, "<.3");
+    if (window.ScrollTrigger) {
+      const reveal = ".journey .jtitle, .journey .jdesc, .journey .jnode, .how h2.big, .how .intro > *, .how .step, .how .path, .learn, .ltile, .how .cta, .nat .nhead, .nat .nsub, .nat .nstat, .nat .npil, .nat .nvisa, .nat .nlinks";
+      gsap.set(reveal, {y: 50, autoAlpha: 0});
+      ScrollTrigger.batch(reveal, {
+        start: "top 90%", once: true,
+        onEnter: els => gsap.to(els, {y: 0, autoAlpha: 1, duration: .7, ease: "power3.out", stagger: .14, overwrite: true})
+      });
+      gsap.set(".flow > *", {autoAlpha: 0, y: 14});
+      ScrollTrigger.batch(".flow", {
+        start: "top 92%", once: true,
+        onEnter: fls => fls.forEach(fl => gsap.to(fl.children, {autoAlpha: 1, y: 0, duration: .5, ease: "back.out(1.7)", stagger: .1}))
+      });
+      gsap.utils.toArray(".nc").forEach(el => {
+        const n = +el.dataset.n, o = {v: 0}, f = v => Math.round(v).toLocaleString("en-US");
+        el.textContent = f(0);
+        ScrollTrigger.create({trigger: el, start: "top 92%", once: true, onEnter: () => gsap.to(o, {v: n, duration: 2, ease: "power2.out", onUpdate: () => { el.textContent = f(o.v); }})});
+      });
+      gsap.from(".jline", {scaleX: 0, transformOrigin: "50% 50%", duration: 1.2, ease: "power2.out", scrollTrigger: {trigger: ".journey", start: "top 80%", once: true}});
+      gsap.fromTo(".steps", {"--p": 0}, {"--p": 1, ease: "none", scrollTrigger: {trigger: ".steps", start: "top 75%", end: "bottom 60%", scrub: .6}});
+    }
+  }
+  if (ctChanged) {
+    const cells = gsap.utils.toArray("#board .board i.on");
+    if (cells.length) gsap.from(cells, {scale: 0, autoAlpha: 0, duration: .4, ease: "back.out(2)", stagger: {amount: 1.2, from: "random"}});
+    gsap.utils.toArray(".ct").forEach(el => {
+      const n = +el.dataset.n || 0; if (!n) return;
+      const o = {v: 0}; el.textContent = 0;
+      gsap.to(o, {v: n, duration: 1.4, ease: "power2.out", snap: {v: 1}, onUpdate: () => { el.textContent = o.v; }});
+    });
+  }
+  if (document.querySelector(".jdot")) {
+    const tlj = gsap.timeline({repeat: -1, repeatDelay: .6});
+    tlj.fromTo(".jdot", {"--t": 0}, {"--t": 1, duration: 6, ease: "none"}, 0);
+    gsap.utils.toArray(".jicon").forEach((n, i) => tlj.fromTo(n, {scale: 1}, {scale: 1.14, duration: .3, yoyo: true, repeat: 1, ease: "power2.out"}, Math.max(0, i * 1.5 - .15)));
+  }
+  document.querySelectorAll(".flow").forEach(fl => {
+    const chips = fl.querySelectorAll("span"), arrows = fl.querySelectorAll("em"), nudge = S.lang === "ar" ? -6 : 6;
+    const loop = gsap.timeline({repeat: -1, repeatDelay: 2.5, delay: 2.5});
+    chips.forEach((c, i) => loop.to(c, {backgroundColor: "rgba(46,230,160,.2)", borderColor: "rgba(46,230,160,.75)", scale: 1.03, duration: .8, yoyo: true, repeat: 1, ease: "sine.inOut"}, i * 1.2));
+    arrows.forEach((a, i) => loop.to(a, {x: nudge, duration: .7, yoyo: true, repeat: 1, ease: "sine.inOut"}, i * 1.2 + .6));
+  });
+  if (document.querySelector(".nicon")) gsap.to(".nicon", {y: -4, duration: 1.8, ease: "sine.inOut", repeat: -1, yoyo: true, stagger: .25});
+  if (document.querySelector(".ltile")) {
+    gsap.to(".licon", {y: -5, duration: 1.6, ease: "sine.inOut", repeat: -1, yoyo: true, stagger: .2});
+    
+  }
+  const lit = gsap.utils.toArray("#board .board i.on");
+  if (lit.length) gsap.to(lit, {opacity: .6, duration: 1.4, ease: "sine.inOut", repeat: -1, yoyo: true, stagger: {amount: 2, from: "random"}});
+}
+function animStep(fresh, fx) {
+  if (fresh) gsap.from("#app > *", {y: 24, autoAlpha: 0, duration: .5, ease: "power3.out", stagger: .08});
+  if (S.step === "st") {
+    if (fresh) gsap.from(".jn", {scale: 0, duration: .4, ease: "back.out(2)", stagger: .06});
+    gsap.to(".jn.c", {boxShadow: "0 0 26px #ffc247", repeat: -1, yoyo: true, duration: .8, ease: "sine.inOut"});
+    if (fx === "bad") {
+      gsap.fromTo(".opt.bad", {x: -12}, {x: 0, duration: .6, ease: "elastic.out(1,.3)"});
+      gsap.fromTo(".hud span:first-child", {scale: 1.35}, {scale: 1, duration: .5, ease: "back.out(3)"});
+    }
+    if (fx === "good") {
+      gsap.fromTo(".opt.ok", {scale: 1.06}, {scale: 1, duration: .5, ease: "back.out(3)"});
+      gsap.fromTo(".hud span:last-child", {scale: 1.5}, {scale: 1, duration: .5, ease: "back.out(3)"});
+    }
+  }
+  if (S.step === "win") gsap.from(".glass > div:first-child", {scale: 0, rotation: -25, duration: 1, ease: "elastic.out(1,.5)"});
+  /* certbox يظهر عبر حركة #app > * أعلاه؛ إزالة الحركة المتعارضة التي كانت تُبقي الشهادة باهتة */
+}
+if (window.gsap) {
+  if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+  gsap.matchMedia().add("(hover: hover) and (prefers-reduced-motion: no-preference)", () => {
+    const orb = document.getElementById("orb");
+    gsap.set(orb, {xPercent: -50, yPercent: -50, autoAlpha: 1});
+    const xTo = gsap.quickTo(orb, "x", {duration: .8, ease: "power3"}), yTo = gsap.quickTo(orb, "y", {duration: .8, ease: "power3"});
+    const mv = e => { xTo(e.clientX); yTo(e.clientY); };
+    window.addEventListener("pointermove", mv);
+    return () => window.removeEventListener("pointermove", mv);
+  });
+  if (document.fonts && document.fonts.ready && window.ScrollTrigger) document.fonts.ready.then(() => ScrollTrigger.refresh());
+}
+/* ===== رموز الذكاء الاصطناعي والبرمجة في الخلفية ===== */
+(function () {
+  const box = document.getElementById("floaters");
+  const SYMS = ["</>", "{ }", "AI", "01", "🤖", "⚙️", "λ", "#", "=>", "[ ]", "🧠", "💡", "if", "fn()", "⌨️", "🔁", "🐞", "10", "</ >", ";"];
+  const COL = ["#3fd8ff", "#ff6aa8", "#ffc247", "#2ee6a0", "#b58cff"];
+  const n = window.innerWidth < 700 ? 6 : 12;
+  for (let i = 0; i < n; i++) {
+    const e = document.createElement("span");
+    e.className = "fl"; e.textContent = SYMS[i % SYMS.length];
+    e.style.left = Math.random() * 96 + "%"; e.style.top = Math.random() * 94 + "%";
+    e.style.fontSize = (1.3 + Math.random() * 2.6).toFixed(2) + "rem";
+    e.style.color = COL[i % COL.length];
+    e.style.opacity = (0.12 + Math.random() * 0.2).toFixed(2);
+    box.appendChild(e);
+  }
+  window.__sf = () => window.gsap && gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", () => {
+    const items = gsap.utils.toArray(".fl");
+    gsap.from(items, {scale: 0, autoAlpha: 0, duration: .8, ease: "back.out(2)", stagger: {amount: 1.5, from: "random"}});
+    items.forEach(el => gsap.to(el, {
+      x: () => gsap.utils.random(-170, 170), y: () => gsap.utils.random(-170, 170), rotation: () => gsap.utils.random(-45, 45),
+      duration: () => gsap.utils.random(6, 13), delay: gsap.utils.random(0, 2), ease: "sine.inOut", repeat: -1, yoyo: true, repeatRefresh: true
+    }));
+  });
+  if (!document.getElementById("splash")) window.__sf();
+})();
+/* ===== شاشة الافتتاح: رموز البرمجة المتحركة (5 ثوانٍ) ===== */
+function startScene(cv) {
+  const ctx = cv && cv.getContext && cv.getContext("2d");
+  if (!ctx) return null;
+  const reduce = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const COL = ["#3fd8ff", "#ff6aa8", "#ffc247", "#2ee6a0", "#b58cff"];
+  const WORDS = ["</>", "{ }", "[ ]", "01", "10", "IF", "LOOP", "=>", "λ", "#", "AI", "fn()", "0101", "<div>", "while", "++", "&&", ">_", "def", "∑", "{ ; }", "NULL"];
+  const rand = (a, b) => a + Math.random() * (b - a);
+  let W, H, dpr, syms = [], nodes = [], last = 0, raf = 0, t0 = 0, stopped = false;
+
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight; dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    const n = W < 700 ? 14 : 24;
+    syms = Array.from({length: n}, (_, i) => ({t: WORDS[i % WORDS.length], x: rand(0, W), y: rand(0, H), s: rand(24, W < 700 ? 56 : 100), vx: rand(-14, 14), vy: rand(-10, 10), r: rand(-.5, .5), vr: rand(-.05, .05), c: COL[i % COL.length], a: rand(.16, .34)}));
+    syms.forEach(o => {
+      const m = document.createElement("canvas"), x = m.getContext("2d");
+      x.font = "700 " + Math.round(o.s) + "px 'Courier New',monospace";
+      o.w = Math.ceil(x.measureText(o.t).width) + 24; o.h = Math.ceil(o.s * 1.5) + 8;
+      m.width = Math.round(o.w * dpr); m.height = Math.round(o.h * dpr);
+      x.scale(dpr, dpr); x.font = "700 " + Math.round(o.s) + "px 'Courier New',monospace";
+      x.textAlign = "center"; x.textBaseline = "middle"; x.globalAlpha = o.a; x.fillStyle = o.c; x.fillText(o.t, o.w / 2, o.h / 2);
+      o.sp = m;
+    });
+    nodes = Array.from({length: W < 700 ? 8 : 16}, () => ({x: rand(0, W), y: rand(0, H), vx: rand(-8, 8), vy: rand(-8, 8)}));
+  }
+  function symbols(c, t) {
+    c.textAlign = "center"; c.textBaseline = "middle";
+    for (const o of syms) {
+      c.save(); c.translate(o.x, o.y); c.rotate(o.r + Math.sin(t * .5 + o.s) * .06);
+      c.drawImage(o.sp, -o.w / 2, -o.h / 2, o.w, o.h); c.restore();
+    }
+    c.lineWidth = 1.2;
+    for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
+      const d = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+      if (d < 230) { c.strokeStyle = "rgba(63,216,255," + (.3 * (1 - d / 230)).toFixed(3) + ")"; c.beginPath(); c.moveTo(nodes[i].x, nodes[i].y); c.lineTo(nodes[j].x, nodes[j].y); c.stroke(); }
+    }
+    c.fillStyle = "rgba(63,216,255,.6)";
+    for (const n of nodes) { c.beginPath(); c.arc(n.x, n.y, 3, 0, 6.283); c.fill(); }
+  }
+  function step(dt) {
+    syms.forEach(o => { o.x += o.vx * dt; o.y += o.vy * dt; o.r += o.vr * dt; if (o.x < -120) o.x = W + 120; if (o.x > W + 120) o.x = -120; if (o.y < -120) o.y = H + 120; if (o.y > H + 120) o.y = -120; });
+    nodes.forEach(n => { n.x += n.vx * dt; n.y += n.vy * dt; if (n.x < 0 || n.x > W) n.vx *= -1; if (n.y < 0 || n.y > H) n.vy *= -1; });
+  }
+  function frame(t) {
+    const dt = Math.min(.05, Math.max(0, t - last)); last = t;
+    if (!reduce) step(dt);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.globalAlpha = 1;
+    ctx.clearRect(0, 0, W, H); symbols(ctx, t);
+  }
+  function loop(now) { if (stopped) return; if (!t0) t0 = now; frame((now - t0) / 1000); raf = requestAnimationFrame(loop); }
+  resize(); window.addEventListener("resize", resize);
+  raf = requestAnimationFrame(loop);
+  return {frame, resize, stop() { stopped = true; cancelAnimationFrame(raf); window.removeEventListener("resize", resize); }};
+}
+(function () {
+  const sp = document.getElementById("splash");
+  if (!sp) return;
+  const DUR = 3;
+  S.hold = true; document.body.classList.add("sp-on", "sp-hide");
+  const scene = startScene(document.getElementById("spc"));
+  let done = false;
+  const finish = () => {
+    if (done) return; done = true;
+    document.body.classList.remove("sp-hide"); S.hold = false; anim(); if (window.__sf) window.__sf();
+    const out = () => { if (scene) scene.stop(); sp.remove(); document.body.classList.remove("sp-on"); };
+    if (window.gsap) { gsap.killTweensOf(".sp-ring"); gsap.to(sp, {autoAlpha: 0, scale: 1.04, duration: .8, ease: "power2.inOut", onComplete: out}); }
+    else out();
+  };
+  if (!window.gsap) { setTimeout(finish, DUR * 1000); return; }
+  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const tl = gsap.timeline({defaults: {ease: "power3.out"}, onComplete: finish});
+  tl.fromTo(".sp-bar i", {scaleX: 0}, {scaleX: 1, duration: DUR - .4, ease: "none"}, .2);
+  if (!reduce) {
+    tl.from(".sp-ring", {scale: .6, autoAlpha: 0, duration: 1.6, stagger: .25}, 0)
+      .from(".sp-title b", {y: 40, rotation: -8, autoAlpha: 0, duration: .7, ease: "back.out(1.6)", stagger: .09}, .5)
+      .from(".sp-cap", {y: 14, autoAlpha: 0, duration: .6}, 1.3);
+    gsap.to(".sp-ring.r1", {rotation: 360, duration: 90, ease: "none", repeat: -1});
+  }
+  sp.style.cursor = "pointer"; sp.addEventListener("click", () => tl.progress(1));
+  tl.to({}, {duration: 0}, DUR);
+})();
+(function () {
+  const hd = document.querySelector("header");
+  const set = () => { document.body.style.paddingTop = (hd.offsetHeight + 28) + "px"; };
+  set(); window.addEventListener("resize", set);
+  if (window.ResizeObserver) new ResizeObserver(set).observe(hd);
+})();
+render(); loadCount();
+</script>
+</body>
+</html>
