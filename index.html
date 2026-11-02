@@ -208,6 +208,7 @@ input,select,textarea{font-size:1.1rem}
 .dc-id{position:absolute;bottom:3.5cqw;inset-inline-start:7.6cqw;color:#8d909a;font-size:1.05cqw;z-index:3}
 
 .cf.ctr{text-align:center}
+.lvtag{display:inline-block;margin-inline-start:8px;padding:2px 10px;border-radius:999px;background:#3fd8ff22;border:1px solid #3fd8ff66;color:#bdf2ff;font-size:.85em;font-weight:700}
 .narrow>*{max-width:1100px;margin-inline:auto}
 .narrow>.certbox{max-width:1300px}
 @media(min-width:1200px){
@@ -557,6 +558,43 @@ const ST = [
   q:{ar:"ما الخطوة الأولى لإصلاح الخطأ؟",en:"What is the first step to fix a bug?"},o:[{ar:"مسح كل الكود",en:"Delete all the code"},{ar:"مقارنة النتيجة بالمتوقع وتحديد السطر",en:"Compare result to expected and find the line"},{ar:"تجاهله",en:"Ignore it"}],ok:1}
 ];
 
+
+/* ===== أسئلة المحطات حسب المستوى / Station questions by level =====
+   لكل محطة 3 أسئلة: [مبتدئ، مستكشف، تحدٍّ متقدم] */
+const QL = [
+ [ // 1. التسلسل
+  {q:{ar:"أي ترتيب صحيح لصنع الشاي؟",en:"Which order makes tea correctly?"},o:[{ar:"اسكب الماء ← أضف الشاي ← اغلِ الماء",en:"Pour water → add tea → boil water"},{ar:"اغلِ الماء ← أضف الشاي ← اسكب في الكوب",en:"Boil water → add tea → pour into cup"},{ar:"اسكب في الكوب ← اغلِ الماء",en:"Pour into cup → boil water"}],ok:1},
+  {q:{ar:"ماذا يظهر على الشاشة عند تنفيذ هذا الكود؟",en:"What appears on the screen when this code runs?"},c:'print("1")\nprint("2")\nprint("3")',o:[{ar:"1 ثم 2 ثم 3",en:"1 then 2 then 3"},{ar:"3 ثم 2 ثم 1",en:"3 then 2 then 1"},{ar:"3 فقط",en:"Only 3"}],ok:0},
+  {q:{ar:"الكمبيوتر ينفّذ الأسطر بالترتيب. كم قيمة x في النهاية؟",en:"The computer runs the lines in order. What is x at the end?"},c:"x = 1\nx = x * 3\nx = x + 2",o:[{ar:"9",en:"9"},{ar:"5",en:"5"},{ar:"6",en:"6"}],ok:1}
+ ],
+ [ // 2. المتغيرات
+  {q:{ar:"المتغير في البرمجة يشبه…",en:"In programming, a variable is like…"},o:[{ar:"صندوقًا له اسم نحفظ فيه قيمة",en:"A named box that stores a value"},{ar:"رقمًا لا يتغير أبدًا",en:"A number that never changes"},{ar:"خطأً في البرنامج",en:"A bug in the program"}],ok:0},
+  {q:{ar:"بعد تنفيذ الكود، كم قيمة points؟",en:"After the code runs, what is points?"},c:"points = 5\npoints = points + 2",o:[{ar:"5",en:"5"},{ar:"7",en:"7"},{ar:"2",en:"2"}],ok:1},
+  {q:{ar:"انتبه جيدًا! كم قيمة b في النهاية؟",en:"Careful! What is b at the end?"},c:"a = 4\nb = a\na = 10",o:[{ar:"10",en:"10"},{ar:"14",en:"14"},{ar:"4",en:"4"}],ok:2}
+ ],
+ [ // 3. المدخلات والمخرجات
+  {q:{ar:"أي مما يلي يُعتبر مُدخلًا (Input) للكمبيوتر؟",en:"Which of these is an input to the computer?"},o:[{ar:"ظهور صورة على الشاشة",en:"A picture showing on the screen"},{ar:"الكتابة بلوحة المفاتيح",en:"Typing on the keyboard"},{ar:"صوت يخرج من السماعة",en:"Sound coming from the speaker"}],ok:1},
+  {q:{ar:"إذا كتب المستخدم Sara، ماذا يُطبع؟",en:"If the user types Sara, what is printed?"},c:'name = input("Your name?")\nprint("Hello " + name)',o:[{ar:"Hello name",en:"Hello name"},{ar:"Hello Sara",en:"Hello Sara"},{ar:"Sara",en:"Sara"}],ok:1},
+  {q:{ar:"كتب المستخدم الرقم 3. ماذا يُطبع؟ (لاحظ علامات التنصيص)",en:"The user typed 3. What is printed? (Watch the quotes)"},c:'x = input()\nprint("x")',o:[{ar:"3",en:"3"},{ar:"x",en:"x"},{ar:"يحدث خطأ",en:"An error"}],ok:1}
+ ],
+ [ // 4. الشرط
+  {q:{ar:"«إذا كانت الإشارة حمراء ← تتوقف السيارة». ماذا تفعل السيارة عند الإشارة الحمراء؟",en:"“IF the light is red → the car stops.” What does the car do at a red light?"},o:[{ar:"تُسرع",en:"Speeds up"},{ar:"تتوقف",en:"Stops"},{ar:"ترجع للخلف",en:"Goes backwards"}],ok:1},
+  {q:{ar:"إذا كانت score = 3، ماذا يُطبع؟",en:"If score = 3, what is printed?"},c:'IF score >= 5 THEN\n  print("Win")\nELSE\n  print("Try again")',o:[{ar:"Win",en:"Win"},{ar:"Try again",en:"Try again"},{ar:"لا شيء",en:"Nothing"}],ok:1},
+  {q:{ar:"إذا كانت temp = 30، ماذا يُطبع؟",en:"If temp = 30, what is printed?"},c:'IF temp > 35 THEN\n  print("Hot")\nELSE IF temp > 25 THEN\n  print("Warm")\nELSE\n  print("Cold")',o:[{ar:"Hot",en:"Hot"},{ar:"Warm",en:"Warm"},{ar:"Cold",en:"Cold"}],ok:1}
+ ],
+ [ // 5. التكرار
+  {q:{ar:"متى نستخدم التكرار (Loop)؟",en:"When do we use a loop?"},o:[{ar:"عندما نريد تنفيذ نفس الأمر عدة مرات",en:"When we want to run the same command many times"},{ar:"عندما نريد إيقاف البرنامج",en:"When we want to stop the program"},{ar:"عندما نريد مسح الكود",en:"When we want to delete the code"}],ok:0},
+  {q:{ar:"كم مرة تُنفَّذ jump()؟",en:"How many times does jump() run?"},c:"REPEAT 3 TIMES:\n  jump()",o:[{ar:"1",en:"1"},{ar:"3",en:"3"},{ar:"مرة واحدة ثم تتوقف",en:"Once, then stops"}],ok:1},
+  {q:{ar:"ماذا يُطبع في النهاية؟",en:"What is printed at the end?"},c:"total = 0\nREPEAT 4 TIMES:\n  total = total + 2\nprint(total)",o:[{ar:"6",en:"6"},{ar:"8",en:"8"},{ar:"2",en:"2"}],ok:1}
+ ],
+ [ // 6. إصلاح الأخطاء
+  {q:{ar:"ما الخطوة الأولى لإصلاح الخطأ؟",en:"What is the first step to fix a bug?"},o:[{ar:"مسح كل الكود",en:"Delete all the code"},{ar:"مقارنة النتيجة بالمتوقع وتحديد السطر",en:"Compare result to expected and find the line"},{ar:"تجاهله",en:"Ignore it"}],ok:1},
+  {q:{ar:"المتوقع أن يطبع 5 لكنه طبع 4. كيف نصلح السطر الأول؟",en:"It should print 5 but printed 4. How do we fix line 1?"},c:"total = 2 + 2\nprint(total)",o:[{ar:"total = 2 + 3",en:"total = 2 + 3"},{ar:"total = 2 - 2",en:"total = 2 - 2"},{ar:"نحذف print(total)",en:"Delete print(total)"}],ok:0},
+  {q:{ar:"المطلوب طباعة 1 2 3 4 5، لكن البرنامج يطبع 1 خمس مرات. ما الخطأ؟",en:"It should print 1 2 3 4 5, but prints 1 five times. What's the bug?"},c:"i = 1\nREPEAT 5 TIMES:\n  print(i)",o:[{ar:"نسينا i = i + 1 داخل التكرار",en:"We forgot i = i + 1 inside the loop"},{ar:"يجب تغيير 5 إلى 1",en:"Change 5 to 1"},{ar:"يجب حذف print(i)",en:"Delete print(i)"}],ok:0}
+ ]
+];
+const curQ = () => QL[S.i][S.level];
+const qCode = q => q.c ? '<pre>' + esc(q.c) + '</pre>' : "";
 /* ===== الحالة / State ===== */
 const S = {lang:"ar",step:"home",role:null,p:0,pScore:0,level:0,i:0,score:0,picked:null,cl:"ar",hdrIn:false,hold:false,ak:"",ctk:"",fx:"",count:0,roles:[0,0,0,0],hearts:3,pts:0,ph:"learn",done:false,wrong:[],last:0,g:{},mine:false,cert:null};
 const app = document.getElementById("app");
@@ -755,13 +793,14 @@ function levelV() {
 function stV0() {
   const s = ST[S.i];
   const showIdea = S.level < 2, showCode = S.level > 0;
-  let h = bar(S.i, 6) + '<p class="mut">' + t("st") + ' ' + (S.i + 1) + ' ' + t("of") + ' 6</p><h2>' + L(s.n) + '</h2>';
+  let h = bar(S.i, 6) + '<p class="mut">' + t("st") + ' ' + (S.i + 1) + ' ' + t("of") + ' 6 <span class="lvtag">' + t("lv")[S.level] + '</span></p><h2>' + L(s.n) + '</h2>';
   if (showIdea) h += '<div class="card"><b>' + t("concept") + '</b><p>' + L(s.i) + '</p></div>';
   if (showCode) h += '<div class="card"><b>' + t("code") + '</b><pre>' + esc(s.c) + '</pre></div>';
-  h += '<div class="card"><b class="q">' + t("check") + ': ' + L(s.q) + '</b><div class="opts">';
-  s.o.forEach((o, k) => {
+  const qq = curQ();
+  h += '<div class="card"><b class="q">' + t("check") + ': ' + L(qq.q) + '</b>' + qCode(qq) + '<div class="opts">';
+  qq.o.forEach((o, k) => {
     let c = "opt";
-    if (S.picked !== null) { if (k === s.ok) c += " ok"; else if (k === S.picked) c += " bad"; }
+    if (S.picked !== null) { if (k === qq.ok) c += " ok"; else if (k === S.picked) c += " bad"; }
     h += '<button class="' + c + '" ' + (S.picked !== null ? "disabled" : 'data-a="ans" data-v="' + k + '"') + '>' + L(o) + '</button>';
   });
   h += '</div></div>';
@@ -798,7 +837,7 @@ function gameV() {
 }
 function stuV() {
   const s = ST[S.i], ar = S.lang === "ar";
-  let h = mapV() + '<p class="mut">' + t("st") + ' ' + (S.i + 1) + ' ' + t("of") + ' 6</p><h2>' + L(s.n) + '</h2>';
+  let h = mapV() + '<p class="mut">' + t("st") + ' ' + (S.i + 1) + ' ' + t("of") + ' 6 <span class="lvtag">' + t("lv")[S.level] + '</span></p><h2>' + L(s.n) + '</h2>';
   if (S.ph === "learn") {
     if (S.level < 2) h += '<div class="card"><b>' + t("concept") + '</b><p>' + L(s.i) + '</p></div>';
     if (S.level > 0) h += '<div class="card"><b>' + t("code") + '</b><pre>' + esc(s.c) + '</pre></div>';
@@ -806,7 +845,8 @@ function stuV() {
   } else if (S.ph === "play") {
     h += '<div class="card">' + gameV() + '</div>';
   } else {
-    h += '<div class="card"><b class="q">' + t("check") + ': ' + L(s.q) + '</b><div class="opts">' + s.o.map((o, k) => {
+    const qq = curQ();
+    h += '<div class="card"><b class="q">' + t("check") + ': ' + L(qq.q) + '</b>' + qCode(qq) + '<div class="opts">' + qq.o.map((o, k) => {
       const lock = S.picked !== null || S.wrong.includes(k) || S.hearts === 0;
       return '<button class="opt' + (S.picked === k ? " ok" : S.wrong.includes(k) ? " bad" : "") + '" ' + (lock ? "disabled" : 'data-a="sans" data-v="' + k + '"') + '>' + L(o) + '</button>';
     }).join("") + '</div></div>';
@@ -869,9 +909,10 @@ function certV() {
   const c = S.cert, en = S.cl === "en";
   const emi = en ? (T.en.em[T.ar.em.indexOf(c.emirate)] || c.emirate) : c.emirate;
   const f = (cls, pos, txt) => '<div class="cf ' + cls + '" style="' + pos + '">' + txt + '</div>';
+  const lvl = c.level ? (en ? (T.en.lv[T.ar.lv.indexOf(c.level)] || c.level) : c.level) : "";
   const X = en
-    ? {kicker:"Certificate of Completion", to:"This certificate is awarded to", sch:"School", emi:"Emirate", for:"For completing the challenge", prog:"Al Falah Innovates", desc:"learning the fundamentals of programming as part of UAE Innovation Month 2026", ev:"Issued on " + fmtDate(new Date(c.date || Date.now()), "en"), t:"Supervising Teacher", p:"School Principal", id:"Certificate ID"}
-    : {kicker:"شهادة إتمام", to:"تُمنح هذه الشهادة إلى", sch:"المدرسة", emi:"الإمارة", for:"لإتمام تحدي", prog:"الفلاح تبتكر", desc:"وتعلّم أساسيات البرمجة ضمن فعاليات شهر الإمارات للابتكار 2026", ev:"تاريخ الإصدار: " + fmtDate(new Date(c.date || Date.now()), "ar"), t:"المعلم المشرف", p:"مدير المدرسة", id:"رقم الشهادة"};
+    ? {kicker:"Certificate of Completion", to:"This certificate is awarded to", sch:"School", emi:"Emirate", for:"For completing the challenge", prog:"Al Falah Innovates", desc:"learning the fundamentals of programming as part of UAE Innovation Month 2026", ev:"Issued on " + fmtDate(new Date(c.date || Date.now()), "en"), t:"Supervising Teacher", p:"School Principal", id:"Certificate ID", lv:"Level"}
+    : {kicker:"شهادة إتمام", to:"تُمنح هذه الشهادة إلى", sch:"المدرسة", emi:"الإمارة", for:"لإتمام تحدي", prog:"الفلاح تبتكر", desc:"وتعلّم أساسيات البرمجة ضمن فعاليات شهر الإمارات للابتكار 2026", ev:"تاريخ الإصدار: " + fmtDate(new Date(c.date || Date.now()), "ar"), t:"المعلم المشرف", p:"مدير المدرسة", id:"رقم الشهادة", lv:"المستوى"};
   let h = '<div class="certbox dc ' + (en ? "ltr" : "rtl") + '" dir="' + (en ? "ltr" : "rtl") + '">' +
     '<div class="dc-deco" aria-hidden="true"><i class="dc-red"></i><i class="dc-green"></i></div>' +
     '<div class="dc-top"><span class="dc-school"><img src="' + esc(LOGO_URL) + '" alt="' + esc(L(ORG)) + '"></span></div>' +
@@ -881,7 +922,7 @@ function certV() {
       '<div class="dc-to">' + X.to + '</div>' +
       '<div class="dc-name fitx"><bdi>' + esc(c.name) + '</bdi></div>' +
       '<div class="dc-rule"></div>' +
-      '<div class="dc-meta fitx">' + X.sch + ': <b><bdi>' + esc(c.school) + '</bdi></b> &nbsp;•&nbsp; ' + X.emi + ': <b>' + esc(emi) + '</b></div>' +
+      '<div class="dc-meta fitx">' + X.sch + ': <b><bdi>' + esc(c.school) + '</bdi></b> &nbsp;•&nbsp; ' + X.emi + ': <b>' + esc(emi) + '</b>' + (lvl ? ' &nbsp;•&nbsp; ' + X.lv + ': <b>' + esc(lvl) + '</b>' : '') + '</div>' +
       '<div class="dc-for">' + X.for + '</div>' +
       '<div class="dc-prog">' + X.prog + '</div>' +
       '<div class="dc-desc">' + X.desc + '</div>' +
@@ -918,7 +959,7 @@ function act(a, v) {
     if (++S.p === 3) { S.level = S.pScore <= 1 ? 0 : S.pScore <= 3 ? 1 : 2; S.step = "level"; }
   }
   else if (a === "stations") { S.step = "st"; S.i = 0; S.score = 0; S.picked = null; S.hearts = 3; S.pts = 0; S.ph = "learn"; S.done = false; S.wrong = []; initG(); preloadCert(); }
-  else if (a === "ans") { S.picked = v; if (v === ST[S.i].ok) S.score++; }
+  else if (a === "ans") { S.picked = v; if (v === curQ().ok) S.score++; }
   else if (a === "nextst") { S.picked = null; if (S.i === 5) S.step = "form"; else S.i++; }
   else if (a === "learned") { initG(); S.ph = "play"; }
   else if (a === "sq") { const g = S.g; g.seq.push(v); if (g.seq.length === 3) { if (g.seq.join() === "0,1,2") S.done = true; else { g.seq = []; g.msg = ar ? "الترتيب غير صحيح، جرّب مرة أخرى" : "Wrong order, try again"; } } }
@@ -929,7 +970,7 @@ function act(a, v) {
   else if (a === "lrun") { if (S.g.n === 3) S.done = true; else S.g.msg = ar ? "الهدف 3 قفزات بالضبط" : "The goal is exactly 3 jumps"; }
   else if (a === "bug") { if (v === 2) S.done = true; else S.g.msg = ar ? "هذا السطر سليم، ابحث في سطر آخر" : "That line is fine, look elsewhere"; }
   else if (a === "gcheck") { S.ph = "check"; S.wrong = []; S.picked = null; }
-  else if (a === "sans") { const q = ST[S.i]; S.fx = v === q.ok ? "good" : "bad"; if (v === q.ok) { S.picked = v; S.last = S.wrong.length ? 5 : 10; S.pts += S.last; if (!S.wrong.length) S.score++; } else { S.wrong.push(v); S.hearts--; } }
+  else if (a === "sans") { const q = curQ(); S.fx = v === q.ok ? "good" : "bad"; if (v === q.ok) { S.picked = v; S.last = S.wrong.length ? 5 : 10; S.pts += S.last; if (!S.wrong.length) S.score++; } else { S.wrong.push(v); S.hearts--; } }
   else if (a === "snext") { S.picked = null; S.wrong = []; S.done = false; S.ph = "learn"; S.hearts = 3; if (S.i === 5) S.step = "win"; else S.i++; }
   else if (a === "retry") { S.hearts = 3; S.wrong = []; S.picked = null; S.ph = "learn"; S.done = false; }
   else if (a === "winnext") S.step = "form";
